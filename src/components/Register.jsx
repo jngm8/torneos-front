@@ -25,8 +25,8 @@ function Register() {
             </div>
 
             <div className='mt-8 flex flex-col'>
-                <Button secondary rounded>Crear cuenta</Button>
-                <Button primary rounded outline>Sign in with google</Button>
+                <Button secondary rounded marginbtm>Crear cuenta</Button>
+                <Button rounded outline>Sign in with google</Button>
             </div>
 
         </div>
