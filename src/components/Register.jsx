@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import Button from './Button';
 import axios from 'axios';
+import { } from "react-router-dom";
 
 function Register() {
 
@@ -11,13 +12,17 @@ function Register() {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        console.log({username,email,password});
-        const response = await axios.post('http://localhost:3001/signup',{
-            username,
-            email,
-            password
-        })
+        try {
+            const response = await axios.post('http://localhost:3001/auth/signup',{
+                username,
+                email,
+                password
+            })
+        } catch (error) {
+            console.error('Registration failed:', error.response.data.message);
+        }
     }
+    // <Redirect/>
 
     return (
         

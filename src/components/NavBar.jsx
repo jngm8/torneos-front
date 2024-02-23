@@ -42,11 +42,11 @@ function NavBar() {
                     }
                     <div className="flex">
                         <Link to={"/login"}>
-                            <Button success nvgtbutton rounded>Crear Cuenta</Button>
+                            <Button success nvgtbutton rounded>Iniciar Sesión</Button>
                         </Link>
 
                         <Link to={"/register"}>
-                            <Button success nvgtbutton rounded>Registrarse</Button>
+                            <Button success nvgtbutton rounded>Crear Cuenta</Button>
                         </Link>
                     </div>
                 </ul>

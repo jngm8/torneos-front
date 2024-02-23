@@ -1,7 +1,28 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Button from './Button';
+import axios from 'axios';
 
 function Login() {
+
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+
+    try {
+        const response = await axios.post('http://localhost:3001/auth/signin',{
+            username,
+            password
+        })
+
+        console.log(response.data);
+        
+    } catch (error) {
+        console.error('Registration failed:', error.response.data.message);
+    }   
+        
+    }
 
     return (
         
@@ -10,24 +31,28 @@ function Login() {
             <h1 className='text-5xl font-semibold text-center'>Iniciar Sesión</h1>
             <p className='font-medium text-lg text-gray-500 mt-4 text-center'>Bienvenido!</p>
 
-            <div className='mt-8'>
-                <label className='text-lg font-medium'>Email</label>
-                <input className='w-full border-2 border-gray-100 rounded-xl p-4 mt-1 bg-transparent'
-                 placeholder='Email'>
+            <form onSubmit={handleSubmit}>
 
-                 </input>
-            </div>
-            
-            <div>
-                <label className='text-lg font-medium'>Password</label>
-                <input className='w-full border-2 border-gray-100 rounded-xl p-4 mt-1 bg-transparent'
-                 placeholder='Password' type='password'></input>
-            </div>
+                <div className='mt-8'>
+                    <label className='text-lg font-medium'>username</label>
+                    <input value={username} onChange={(event) => setUsername(event.target.value)} className='w-full border-2 border-gray-100 rounded-xl p-4 mt-1 bg-transparent'
+                    placeholder='username'>
+
+                    </input>
+                </div>
+                
+                <div>
+                    <label className='text-lg font-medium'>Password</label>
+                    <input value={password} onChange={(event) => setPassword(event.target.value)} className='w-full border-2 border-gray-100 rounded-xl p-4 mt-1 bg-transparent'
+                    placeholder='Password' type='password'></input>
+                </div>
 
             <div className='mt-8 flex flex-col'>
                 <Button success rounded marginbtm>Iniciar sesión</Button>
                 <Button primary rounded outline>Iniciar sesión con google</Button>
             </div>
+
+            </form>
 
         </div>
     )
