@@ -1,7 +1,7 @@
 import className from 'classnames';
 import {twMerge} from 'tailwind-merge';
 
-function Button({children, primary, secondary, success, warning, danger, outline, rounded,nvgtbutton,marginbtm}) {
+function Button({children, primary, secondary, success, warning, danger, outline, rounded,nvgtbutton,marginbtm, ...rest}) {
 
     let classes = twMerge(className("items-center px-6 py-2 border font-bold active:scale-[.98] active:duration-75 transition-all hover:scale-[1.01] ease-in-out",{
         'border-blue-500 bg-blue-500 text-white': primary,
@@ -16,12 +16,12 @@ function Button({children, primary, secondary, success, warning, danger, outline
         'text-green-500': success && outline,
         'text-yellow-400': warning && outline,
         'text-red-500': danger && outline,
-        "bg-indigo-600 text-white font-Poppins md:ml-8 hover:bg-indigo-400 duration-500":nvgtbutton,
+        "font-Poppins md:ml-8 hover:bg-green-600 duration-500":nvgtbutton,
         "mb-3":marginbtm
     }));
 
     return (
-        <button className={classes}>{children}</button>
+        <button {...rest} className={classes}>{children}</button>
     )
 }
 

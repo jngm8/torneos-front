@@ -25,7 +25,7 @@ function Login() {
             </div>
 
             <div className='mt-8 flex flex-col'>
-                <Button secondary rounded marginbtm>Iniciar sesión</Button>
+                <Button success rounded marginbtm>Iniciar sesión</Button>
                 <Button primary rounded outline>Iniciar sesión con google</Button>
             </div>
 

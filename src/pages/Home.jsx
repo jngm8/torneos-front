@@ -1,12 +1,19 @@
+import Button from "../components/Button";
 import NavBar from "../components/NavBar";
 
 function Home() {
 
     return(
         <div>
-            <NavBar></NavBar>
-            Home Turbo!
+            <div>
+                <NavBar>
+                </NavBar>
+            </div>
+            <div>
+                <Button>wesdfcxsss</Button> 
+            </div>
         </div>
+
     )
 }
 
