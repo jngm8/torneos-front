@@ -12,7 +12,7 @@ function Register() {
     const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
     const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 
-    const userRef = useRef();
+    const userRef = useRef(null);
     const errRef = useRef();
 
 
@@ -29,10 +29,13 @@ function Register() {
     const [matchFocus, setMatchFocus] = useState(false);
 
     const [errMsg, setErrMsg] = useState('');
-    // const [success, setSuccess] = useState(false);
+    const [success, setSuccess] = useState(false);
 
     useEffect(() => {
-            userRef.current.focus();
+       // Ensure userRef.current is not null before calling focus
+       if (userRef.current !== null) {
+        userRef.current.focus();
+      }
     }, [])
 
     // Validate username with the regex
@@ -51,7 +54,7 @@ function Register() {
         setErrMsg('');
     }, [username, password, matchPwd])
 
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
 
     const handleSubmit = async (event) => {
@@ -73,10 +76,8 @@ function Register() {
                 withCredentials: true
             }
             );
-
-            console.log(response);
+            setSuccess(true);
             
-            navigate('/login');
         } catch (error) {
             if (!error?.response){
                 setErrMsg("El servidor no responde")
@@ -91,8 +92,19 @@ function Register() {
     }
 
     return (
+        <>
+        {success ? (
+                <section>
+                    <h1 className='sucmessage'>¡Registro exitoso!</h1>
+                    <p className='flex justify-center items-center mt-2'>
+                        <Link to={"/login"}>
+                                <Button primary rounded>Ir a inicio de sesión</Button>
+                        </Link>  
+                    </p>
+                </section>
+            ) : (
         
-        <div className='bg-white px-10 py-7 rounded-3xl border-2  font-squada-one'>
+        <div className='bg-white px-10 py-7 rounded-3xl border-2 font-squada-one'>
             
             <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
             <h1 className='text-5xl font-semibold text-center '>Registro</h1>
@@ -148,7 +160,7 @@ function Register() {
                     onBlur={() => setPwdFocus(false)}
                     />
                 </div>
-                <p id="password" className={pwdFocus && !validPwd ? "instructions" : "offscreen"}>
+                <p id="password" className={pwdFocus && password && !validPwd ? "instructions" : "offscreen"}>
                     <FontAwesomeIcon icon={faInfoCircle} />
                     De 8 a 24 caracteres. Debe incluir letras mayúsculas y minúsculas <br />
                     así como un número y un carácter especial. Se permiten los siguientes <br />
@@ -184,8 +196,7 @@ function Register() {
                 </div>
 
                 <div className='mt-4 flex flex-col '>
-                    <Button disabled={!validName || !validPwd || !validMatch ? true : false} success rounded marginbtm>Crear cuenta</Button>
-                    <Button primary rounded outline>Registrate con google</Button>
+                    <Button disabled={!validName || !validPwd || !validMatch ? true : false} primary rounded marginbtm>Crear cuenta</Button>
                 </div>
 
 
@@ -200,7 +211,8 @@ function Register() {
             </p>
 
         </div>
-    )
+       )}
+       </>
+   )
 }
-
 export default Register;

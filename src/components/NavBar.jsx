@@ -7,10 +7,11 @@ import TurboImage from '../img/LogoTurboBet.png'
 function NavBar() {
 
     let Links = [
-        {name:"Home", link:"/"},
         {name:"Torneos", link:"/"},
-        {name:"Conocenos", link:"/"},
-        {name:"Contactanos", link:"/"},
+        {name:"Resultados", link:"/"},
+        {name:"Organizadores", link:"/"},
+        {name:"Iniciar Sesión", link:"/login"},
+        {name:"Registrarse", link:"/register"},
     ]
 
     let [open,setOpen] = useState();
@@ -41,13 +42,6 @@ function NavBar() {
                             </li>
                         ) })
                     }
-                        <Link to={"/login"}>
-                            <Button success nvgtbutton rounded>Iniciar Sesión</Button>
-                        </Link>
-
-                        <Link to={"/register"}>
-                            <Button success nvgtbutton rounded>Crear Cuenta</Button>
-                        </Link>
                 </ul>
 
             </div>
