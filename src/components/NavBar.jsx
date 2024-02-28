@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import Button from "./Button";
 import { useState } from "react";
+import TurboImage from '../img/LogoTurboBet.png'
+
 
 function NavBar() {
 
@@ -15,17 +17,16 @@ function NavBar() {
 
     return (
         <div className="shadow-md w-full fixed top-0 left-0">
-            <div className="md:flex items-center justify-between bg-white py-4 md:px-10 px-7">
+            <div className="md:flex flex items-center justify-between bg-white py-4 md:px-10 px-7">
 
                 <div className="font-bold text-2x1 cursor-pointer flex items-center font-Poppins text-gray-800">
                     <span className="text-3x1 text-indigo-600 mr-1 pt-2">
-                        <ion-icon name="football-outline"></ion-icon>
+                        <img className="w-32 h-auto"src={TurboImage} alt="Example"></img> 
                     </span>
-                    TurboBet
                 </div>
 
-                <div onClick={() => setOpen(!open)} className="text-3x1 absolute right-8 top-6 cursor-pointer md:hidden">
-                    <ion-icon name={ open ? 'close' : 'menu'}></ion-icon>
+                <div onClick={() => setOpen(!open)} className="text-3x1 absolute right-8 top-5 cursor-pointer md:hidden">
+                    <ion-icon style={{ fontSize: '1.9rem' }} name={ open ? 'close' : 'menu'}></ion-icon>
                 </div>
 
                 <ul className={`md:flex md:items-center md:pb-0 pb-12 
@@ -40,7 +41,6 @@ function NavBar() {
                             </li>
                         ) })
                     }
-                    <div className="flex">
                         <Link to={"/login"}>
                             <Button success nvgtbutton rounded>Iniciar Sesión</Button>
                         </Link>
@@ -48,7 +48,6 @@ function NavBar() {
                         <Link to={"/register"}>
                             <Button success nvgtbutton rounded>Crear Cuenta</Button>
                         </Link>
-                    </div>
                 </ul>
 
             </div>

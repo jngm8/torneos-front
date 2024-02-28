@@ -1,16 +1,15 @@
-import Button from "../components/Button";
 import NavBar from "../components/NavBar";
+import Carousel from '../components/Carousel';
 
 function Home() {
 
     return(
         <div>
             <div>
-                <NavBar>
-                </NavBar>
+                <NavBar/>
             </div>
-            <div>
-                <Button>wesdfcxsss</Button> 
+            <div className='mt-20'>
+                <Carousel />
             </div>
         </div>
 

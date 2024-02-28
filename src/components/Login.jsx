@@ -1,25 +1,32 @@
 import React, {useState} from 'react';
 import Button from './Button';
 import axios from 'axios';
+import {useNavigate} from "react-router-dom";
+
 
 function Login() {
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const navigate = useNavigate();
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-
+        
     try {
         const response = await axios.post('http://localhost:3001/auth/signin',{
             username,
-            password
-        })
+            password,}
+        // },{
+        //     withCredentials: true // This ensures that credentials are included in the request
+        // }
+        )
 
-        console.log(response.data);
-        
+        navigate("/");
+
+
     } catch (error) {
-        console.error('Registration failed:', error.response.data.message);
+        console.error('Registration failed:', error.response);
     }   
         
     }
@@ -34,9 +41,9 @@ function Login() {
             <form onSubmit={handleSubmit}>
 
                 <div className='mt-8'>
-                    <label className='text-lg font-medium'>username</label>
+                    <label className='text-lg font-medium'>Username</label>
                     <input value={username} onChange={(event) => setUsername(event.target.value)} className='w-full border-2 border-gray-100 rounded-xl p-4 mt-1 bg-transparent'
-                    placeholder='username'>
+                    placeholder='Username'>
 
                     </input>
                 </div>
@@ -47,10 +54,10 @@ function Login() {
                     placeholder='Password' type='password'></input>
                 </div>
 
-            <div className='mt-8 flex flex-col'>
-                <Button success rounded marginbtm>Iniciar sesión</Button>
-                <Button primary rounded outline>Iniciar sesión con google</Button>
-            </div>
+                <div className='mt-8 flex flex-col'>
+                    <Button success rounded marginbtm>Iniciar sesión</Button>
+                    <Button primary rounded outline>Iniciar sesión con google</Button>
+                </div>
 
             </form>
 
