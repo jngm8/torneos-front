@@ -10,8 +10,7 @@ function NavBar() {
         {name:"Torneos", link:"/"},
         {name:"Resultados", link:"/"},
         {name:"Organizadores", link:"/"},
-        {name:"Iniciar Sesión", link:"/login"},
-        {name:"Registrarse", link:"/register"},
+        {name:"¡Unete Ya!", link:"/login"},
     ]
 
     let [open,setOpen] = useState();

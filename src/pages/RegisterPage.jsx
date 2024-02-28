@@ -2,6 +2,8 @@ import Register from '../components/Register';
 import TurboImage from '../img/LogoTurboBet.png'
 import { FaInstagram } from "react-icons/fa";
 import { TiSocialFacebookCircular } from "react-icons/ti";
+import { FaTiktok } from "react-icons/fa";
+
 
 function RegisterPage() {
 
@@ -15,15 +17,20 @@ function RegisterPage() {
 
             <div className="hidden lg:flex flex-col w-1/2 items-center justify-center h-full">
                 
-                <div className='animate-pulse 1s cubic-bezier(0, 0, 0.2, 1) infinite'>
+                <div>
                     <img src={TurboImage} className="w-80 h-auto" alt="Example"></img> 
                 </div>
-                <div className='flex mt-20 space-x-40'>
+
+                <div className='flex mt-50 space-x-20 animate-bounce'>
                     <a href="https://www.instagram.com/turbobet_" target="_blank" rel="noopener noreferrer">
-                        <FaInstagram className="text-6xl hover:scale-110 transition duration-300" />
+                        <FaInstagram className="text-5xl hover:scale-110 transition duration-300" />
                     </a>
                     <a href="https://www.facebook.com/profile.php?id=61554840969562" target="_blank" rel="noopener noreferrer">
-                        <TiSocialFacebookCircular className="text-6xl hover:scale-110  transition duration-300" />
+                        <TiSocialFacebookCircular className="text-5xl hover:scale-110  transition duration-300" />
+                    </a>
+
+                    <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer">
+                        <FaTiktok className="text-5xl hover:scale-110  transition duration-300" />
                     </a>
                 </div>
             
