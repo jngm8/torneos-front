@@ -18,7 +18,7 @@ function RegisterPage() {
             <div className="hidden lg:flex flex-col w-1/2 items-center justify-center h-full">
                 
                 <div>
-                    <img src={TurboImage} className="w-80 h-auto" alt="Example"></img> 
+                    <img src={TurboImage} className="w-80 h-auto mb-10" alt="Example"></img> 
                 </div>
 
                 <div className='flex mt-50 space-x-20 animate-bounce'>

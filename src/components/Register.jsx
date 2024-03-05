@@ -1,9 +1,10 @@
 import React, {useState,useRef,useEffect} from 'react';
 import Button from './Button';
 import axios from 'axios';
-import {Link, useNavigate} from "react-router-dom";
+import {Link} from "react-router-dom";
 import { faCheck, faTimes, faInfoCircle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { FormattedMessage, useIntl  } from 'react-intl';
 
 function Register() {
 
@@ -80,25 +81,26 @@ function Register() {
             
         } catch (error) {
             if (!error?.response){
-                setErrMsg("El servidor no responde")
+                setErrMsg(intl.formatMessage({ id: 'ErrorReg1' }))
             } else if (error.response?.status === 409){
-                setErrMsg("¡Usuario ya existe!")
+                setErrMsg(intl.formatMessage({ id: 'ErrorReg2' }))
             } else {
-                setErrMsg("Registro fallido")
+                setErrMsg(intl.formatMessage({ id: 'ErrorReg3' }))
             }
 
             errRef.current.focus();
         }
     }
+    const intl = useIntl()
 
     return (
         <>
         {success ? (
                 <section>
-                    <h1 className='sucmessage'>¡Registro exitoso!</h1>
+                    <h1 className='sucmessage'><FormattedMessage id="ExitosoReg"/></h1>
                     <p className='flex justify-center items-center mt-2'>
                         <Link to={"/login"}>
-                                <Button primary rounded>Ir a inicio de sesión</Button>
+                                <Button primary rounded><FormattedMessage id="IrAUnirmeReg"/></Button>
                         </Link>  
                     </p>
                 </section>
@@ -107,13 +109,13 @@ function Register() {
         <div className='bg-white px-10 py-7 rounded-3xl border-2 font-squada-one'>
             
             <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
-            <h1 className='text-5xl font-semibold text-center '>Registro</h1>
+            <h1 className='text-5xl font-semibold text-center '><FormattedMessage id="TituloReg"/></h1>
             {/* <p className='font-medium text-lg text-gray-500 mt-4 text-center'>Bienvenido! Registrate ahora</p> */}
 
             <form onSubmit={handleSubmit}>
                 <div className='mt-2'>
                     <label className='text-lg font-medium'>
-                        Usuario
+                        <FormattedMessage id="UsuarioIS"/>
                         <FontAwesomeIcon icon={faCheck} className={validName ? "valid" : "hide"} />
                         <FontAwesomeIcon icon={faTimes} className={validName || !username ? "hide" : "invalid"} />
                     </label>
@@ -129,20 +131,20 @@ function Register() {
                         aria-describedby="uidnote"
                         onFocus={() => setUserFocus(true)}
                         onBlur={() => setUserFocus(false)}
-                        placeholder='Usuario'
+                        placeholder={intl.formatMessage({ id: 'UsuarioReg' })}
                     />
 
                     <p id="uidnote" className={userFocus && username && !validName ? "instructions" : "offscreen"}>
                         <FontAwesomeIcon icon={faInfoCircle} />
-                           4 a 24 caracteres. Debe iniciar con una letra.
-                           Letras,<br/> numeros, guiones permitidos.
+                        <FormattedMessage id="UsuarioVal1"/><br/>
+                        <FormattedMessage id="UsuarioVal2"/>
                     </p>
   
                 </div>
                 
                 <div>
                     <label className='text-lg font-medium'>
-                        Contraseña
+                        <FormattedMessage id="ContraseñaReg"/>
                         <FontAwesomeIcon icon={faCheck} className={validPwd ? "valid" : "hide"} />
                         <FontAwesomeIcon icon={faTimes} className={validPwd || !password ? "hide" : "invalid"} />
                     </label>
@@ -152,7 +154,7 @@ function Register() {
                     value={password} 
                     onChange={(event) => setPassword(event.target.value)} 
                     className='w-full border-2 border-gray-100 rounded-xl p-4 mt-1 bg-transparent'
-                    placeholder='Contraseña' 
+                    placeholder={intl.formatMessage({ id: 'ContraseñaReg' })}
                     type='password'
                     aria-invalid={validPwd ? "false" : "true"}
                     aria-describedby="pwdnote"
@@ -162,15 +164,15 @@ function Register() {
                 </div>
                 <p id="password" className={pwdFocus && password && !validPwd ? "instructions" : "offscreen"}>
                     <FontAwesomeIcon icon={faInfoCircle} />
-                    De 8 a 24 caracteres. Debe incluir letras mayúsculas y minúsculas <br />
-                    así como un número y un carácter especial. Se permiten los siguientes <br />
-                    caracteres especiales: <span aria-label="exclamation mark">!</span> <span aria-label="at symbol">@</span> <span aria-label="hashtag">#</span> <span aria-label="dollar sign">$</span> <span aria-label="percent">%</span>
+                    <FormattedMessage id="ContraseñaVal1"/> <br />
+                    <FormattedMessage id="ContraseñaVal2"/> <br />
+                    <FormattedMessage id="ContraseñaVal3"/><span aria-label="exclamation mark">!</span> <span aria-label="at symbol">@</span> <span aria-label="hashtag">#</span> <span aria-label="dollar sign">$</span> <span aria-label="percent">%</span>
                 </p>
 
 
                 <div>
                     <label className='text-lg font-medium'>
-                        Confirmar contraseña
+                    <FormattedMessage id="ConfirmarContraseñaReg"/>
                         <FontAwesomeIcon icon={faCheck} className={validMatch && matchPwd ? "valid" : "hide"} />
                         <FontAwesomeIcon icon={faTimes} className={validMatch || !matchPwd ? "hide" : "invalid"} />
                     </label>
@@ -182,7 +184,7 @@ function Register() {
                         value={matchPwd}                            // Binds the value of the input field to the state variable matchPwd
                         onChange={(event) => setMatchPwd(event.target.value)} // Updates the matchPwd state variable when the input value changes
                         className='w-full border-2 border-gray-100 rounded-xl p-4 mt-1 bg-transparent' // Applies Tailwind CSS classes for styling
-                        placeholder='Confirmar contraseña'          // Specifies a placeholder text for the input field
+                        placeholder={intl.formatMessage({ id: 'ConfirmarContraseñaReg' })}// Specifies a placeholder text for the input field
                         aria-invalid={validMatch ? "false" : "true"} // Specifies if the input is invalid for accessibility purposes
                         aria-describedby="confirmnote"              // Associates the input with an element that provides instructions or feedback
                         onFocus={() => setMatchFocus(true)}         // Event handler triggered when the input field gains focus
@@ -191,21 +193,21 @@ function Register() {
 
                     <p id="confirmnote" className={matchFocus && !validMatch ? "instructions" : "offscreen"}>
                             <FontAwesomeIcon icon={faInfoCircle} />
-                            Debe ser la misma contraseña del paso anterior
+                            <FormattedMessage id="ConfirmarContraVal"/>
                     </p>
                 </div>
 
                 <div className='mt-4 flex flex-col '>
-                    <Button disabled={!validName || !validPwd || !validMatch ? true : false} primary rounded marginbtm>Crear cuenta</Button>
+                    <Button disabled={!validName || !validPwd || !validMatch ? true : false} primary rounded marginbtm><FormattedMessage id="CrearReg"/></Button>
                 </div>
 
 
             </form>
             <p className='flex justify-center  items-center mt-2'>
-                    <div className='font-italic'>¿Ya estás registrado?</div>
+                    <div className='font-italic'><FormattedMessage id="PreguntaReg"/></div>
                     <span className="ml-2 line">
                         <Link to={"/login"}>
-                            <Button nocustom>Unete</Button>
+                            <Button nocustom><FormattedMessage id="UneteReg"/></Button>
                         </Link>                      
                     </span>
             </p>

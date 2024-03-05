@@ -1,0 +1,47 @@
+{
+    "TituloIS" : "Login",
+    "BienvenidaIS" : "Welcome!",
+    "UsuarioIS" : "User",
+    "ContraseñaIS" : "Password",
+    "UnirmeIS" : "Join",
+    "GoogleIS" : "Sign in with google",
+    "PreguntaRegistroIS" : "Not registered?",
+    "RegistrarmeIS" : "Register",
+
+    "TituloReg": "Register",
+    "UsuarioReg": "User",
+    "ContraseñaReg": "Password",
+    "ConfirmarContraseñaReg": "Confirm password",
+    "CrearReg": "Create account",
+    "PreguntaReg": "Registered?",
+    "UneteReg": "Join",
+
+    
+
+    "ErrorIS1": "Could not connect to the server",
+    "ErrorIS2": "Missing username or password",
+    "ErrorIS3": "Incorrect username or password",
+    "ErrorIS4": "Login failed, please try again later",
+
+    "ErrorReg1": "The server is not responding",
+    "ErrorReg2": "The user already exists!",
+    "ErrorReg3": "Registration failed",
+
+    "UsuarioVal1": "4 to 24 characters. Must start with a letter. Letters,",
+    "UsuarioVal2": "numbers, hyphens allowed.",
+    "ContraseñaVal1": "From 8 to 24 characters. Must include uppercase and lowercase letters",
+    "ContraseñaVal2": "as well as a number and a special character. The following",
+    "ContraseñaVal3": "special characters are allowed:",
+    "ConfirmarContraVal": "Must be the same password from the step before",
+
+
+    "ExitosoReg": "Successful registration",
+    "IrAUnirmeReg": "Go to SignIn",
+
+    "Nav1": "Tournaments",
+    "Nav2": "Results", 
+    "Nav3": "Rankings",
+    "Nav4": "Join now!"
+
+
+}

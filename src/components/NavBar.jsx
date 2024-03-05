@@ -2,15 +2,18 @@ import { Link } from "react-router-dom";
 import Button from "./Button";
 import { useState } from "react";
 import TurboImage from '../img/LogoTurboBet.png'
-
+import { FormattedMessage, useIntl  } from 'react-intl';
 
 function NavBar() {
 
+        const intl = useIntl()
+
+
     let Links = [
-        {name:"Torneos", link:"/"},
-        {name:"Resultados", link:"/"},
-        {name:"Organizadores", link:"/"},
-        {name:"¡Unete Ya!", link:"/login"},
+        {name: intl.formatMessage({ id: 'Nav1' }), link:"/"},
+        {name:intl.formatMessage({ id: 'Nav2' }), link:"/"},
+        {name: intl.formatMessage({ id: 'Nav3' }), link:"/"},
+        {name: intl.formatMessage({ id: 'Nav4' }), link:"/login"},
     ]
 
     let [open,setOpen] = useState();

@@ -1,0 +1,44 @@
+{
+    "TituloIS" : "Iniciar Sesión",
+    "BienvenidaIS" : "¡Bienvenido!",
+    "UsuarioIS" : "Usuario",
+    "ContraseñaIS" : "Contraseña",
+    "UnirmeIS" : "Unirme",
+    "GoogleIS" : "Iniciar sesión con google",
+    "PreguntaRegistroIS" : "¿No estas registrado aún?",
+    "RegistrarmeIS" : "Registrarme",
+
+    "TituloReg": "Registro",
+    "UsuarioReg": "Usuario",
+    "ContraseñaReg": "Contraseña",
+    "ConfirmarContraseñaReg": "Confirmar contraseña",
+    "CrearReg": "Crear cuenta",
+    "PreguntaReg": "¿Ya estás registrado?",
+    "UneteReg": "Unirme",
+
+    "UsuarioVal1": "4 a 24 caracteres. Debe iniciar con una letra.Letras",
+    "UsuarioVal2": ",numeros, guiones permitidos.",
+    "ContraseñaVal1": "De 8 a 24 caracteres. Debe incluir letras mayúsculas y minúsculas",
+    "ContraseñaVal2": "así como un número y un carácter especial. Se permiten los siguientes",
+    "ContraseñaVal3": "caracteres especiales:",
+    "ConfirmarContraVal": "Debe ser la misma contraseña del paso anterior",
+
+    "ErrorIS1": "No se pudo conectar con el servidor",
+    "ErrorIS2": "Falta usuario o contraseña",
+    "ErrorIS3": "Usuario o contraseña incorrectos",
+    "ErrorIS4": "Inicio fallido, intente de nuevo más tarde",
+
+    "ErrorReg1": "El servidor no responde",
+    "ErrorReg2": "¡El usuario ya existe!",
+    "ErrorReg3": "Registro fallido",
+
+    "ExitosoReg": "Registro Exitoso",
+    "IrAUnirmeReg": "Ir a inicio de sesión",
+
+    "Nav1": "Torneos",
+    "Nav2": "Resultados", 
+    "Nav3": "Rankings",
+    "Nav4": "¡Unete!"
+
+
+}

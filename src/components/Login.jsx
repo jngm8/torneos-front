@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useNavigate, Link } from "react-router-dom";
 import Google from '../img/google.jpg';
 import { AuthContext } from '../context/AuthProvider';
+import { FormattedMessage, useIntl  } from 'react-intl';
 
 function Login() {
 
@@ -44,6 +45,9 @@ function Login() {
                 }
             );
 
+            console.log(response);
+            
+
             const accessToken = response?.data?.accessToken;
             const roles = response?.data?.role;
             
@@ -54,13 +58,13 @@ function Login() {
 
         } catch (error) {
             if (!error.response) {
-                setErrMsg('No se pudo conectar con el servidor');
+                setErrMsg(intl.formatMessage({ id: 'ErrorIS1' }));
             } else if (error.response.status === 400) {
-                setErrMsg('Falta usuario o contraseña');
+                setErrMsg(intl.formatMessage({ id: 'ErrorIS2' }));
             } else if (error.response.status === 401) {
-                setErrMsg('Usuario o contraseña incorrectos');
+                setErrMsg(intl.formatMessage({ id: 'ErrorIS3' }));
             } else {
-                setErrMsg('Inicio fallido, intente de nuevo más tarde');
+                setErrMsg(intl.formatMessage({ id: 'ErrorIS4' }));
             }
 
             errRef.current.focus();
@@ -68,58 +72,59 @@ function Login() {
 
     }
 
+    const intl = useIntl()
+
     return (
 
         <div className='bg-white px-10 py-7 rounded-3xl border-2 font-squada-one'>
 
             <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
-            <h1 className='text-5xl font-semibold text-center'>Iniciar Sesión</h1>
-            <p className='font-medium text-lg text-gray-500 mt-4 text-center'>¡Bienvenido!</p>
+            <h1 className='text-5xl font-semibold text-center'><FormattedMessage id="TituloIS"/></h1>
+            <p className='font-medium text-lg text-gray-500 mt-4 text-center'><FormattedMessage id="BienvenidaIS"/></p>
 
             <form onSubmit={handleSubmit}>
 
                 <div className='mt-8'>
-                    <label className='text-lg font-medium'>Usuario</label>
+                    <label className='text-lg font-medium'><FormattedMessage id="UsuarioIS"/></label>
                     <input
                         type='text'
                         id='username'
                         ref={userRef}
                         autoComplete='on'
-
+                        placeholder={intl.formatMessage({ id: 'UsuarioIS' })}
                         value={username}
                         onChange={(event) => setUsername(event.target.value)}
                         className='w-full border-2 border-gray-100 rounded-xl p-4 mt-1 bg-transparent'
-                        placeholder='Usuario'
                         required
                     />
                 </div>
 
                 <div>
-                    <label className='text-lg font-medium'>Contraseña</label>
+                    <label className='text-lg font-medium'><FormattedMessage id="ContraseñaIS"/></label>
                     <input
                         id='password'
                         value={password}
+                        placeholder={intl.formatMessage({ id: 'ContraseñaIS' })}
                         onChange={(event) => setPassword(event.target.value)}
                         className='w-full border-2 border-gray-100 rounded-xl p-4 mt-1 bg-transparent'
-                        placeholder='Contraseña'
                         type='password'
                     />
                 </div>
 
                 <div className='mt-8 flex flex-col'>
-                    <Button primary rounded marginbtm>Unirme</Button>
+                    <Button primary rounded marginbtm><FormattedMessage id="UnirmeIS"/></Button>
                 </div>
             </form>
 
             <Button secondary rounded outline>
                 <img src={Google} alt="Google Logo" className="w-4 h-4 rounded-full" />
-                <span>Iniciar sesión con Google</span>
+                <span><FormattedMessage id="GoogleIS"/></span>
             </Button>
             <p className='flex justify-center  items-center mt-2'>
-                <div className='font-italic'>¿No estás registrado?</div>
+                <div className='font-italic'><FormattedMessage id="PreguntaRegistroIS"/></div>
                 <span className="ml-2 line">
                     <Link to={"/register"}>
-                        <Button nocustom>Registrarme</Button>
+                        <Button nocustom><FormattedMessage id="RegistrarmeIS"/></Button>
                     </Link>
                 </span>
             </p>
