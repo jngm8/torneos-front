@@ -1,14 +1,14 @@
-import React, { useContext, useRef, useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import Button from './Button';
 import axios from 'axios';
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link, useLocation } from "react-router-dom";
 import Google from '../img/google.jpg';
-import { AuthContext } from '../context/AuthProvider';
 import { FormattedMessage, useIntl  } from 'react-intl';
+import useAuth from '../hooks/useAuth';
 
 function Login() {
 
-    const { setAuth } = useContext(AuthContext);
+    const { setAuth } = useAuth();
     const userRef = useRef(null);
     const errRef = useRef();
 
@@ -29,6 +29,8 @@ function Login() {
 
 
     const navigate = useNavigate();
+    const location = useLocation();
+    const from = location?.state?.from.pathname ||  "/" ;
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -45,16 +47,18 @@ function Login() {
                 }
             );
 
-            console.log(response);
             
-
             const accessToken = response?.data?.accessToken;
-            const roles = response?.data?.role;
+            const roles = response?.data?.roles;
+
+            console.log(accessToken, roles);
+   
             
             setAuth({username,password,accessToken,roles});
             setUsername('');
             setPassword('');
-            navigate("/");
+            // navigate("/");
+            navigate(from, { replace: true });
 
         } catch (error) {
             if (!error.response) {

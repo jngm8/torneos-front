@@ -1,8 +1,8 @@
 import Register from '../components/Register';
-import TurboImage from '../img/LogoTurboBet.png'
 import { FaInstagram } from "react-icons/fa";
 import { TiSocialFacebookCircular } from "react-icons/ti";
 import { FaTiktok } from "react-icons/fa";
+import LogoImage from '../components/LogoImage';
 
 
 function RegisterPage() {
@@ -11,14 +11,14 @@ function RegisterPage() {
         <div className="flex w-full h-screen">
 
             <div className="w-full flex items-center justify-center lg:w-1/2 bg-custom-green">
-                <Register />
+                <Register/>
             </div>
 
 
             <div className="hidden lg:flex flex-col w-1/2 items-center justify-center h-full">
                 
                 <div>
-                    <img src={TurboImage} className="w-80 h-auto mb-10" alt="Example"></img> 
+                    <LogoImage big/>
                 </div>
 
                 <div className='flex mt-50 space-x-20 animate-bounce'>

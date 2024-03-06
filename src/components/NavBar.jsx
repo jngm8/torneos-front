@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import Button from "./Button";
 import { useState } from "react";
-import TurboImage from '../img/LogoTurboBet.png'
 import { FormattedMessage, useIntl  } from 'react-intl';
+import  LogoImage  from "./LogoImage";
 
 function NavBar() {
 
@@ -12,7 +12,7 @@ function NavBar() {
     let Links = [
         {name: intl.formatMessage({ id: 'Nav1' }), link:"/"},
         {name:intl.formatMessage({ id: 'Nav2' }), link:"/"},
-        {name: intl.formatMessage({ id: 'Nav3' }), link:"/"},
+        {name: intl.formatMessage({ id: 'Nav3' }), link:"/admin"},
         {name: intl.formatMessage({ id: 'Nav4' }), link:"/login"},
     ]
 
@@ -24,7 +24,7 @@ function NavBar() {
 
                 <div className="font-bold text-2x1 cursor-pointer flex items-center font-Poppins text-gray-800">
                     <span className="text-3x1 text-indigo-600 mr-1 pt-2">
-                        <img className="w-32 h-auto"src={TurboImage} alt="Example"></img> 
+                        <LogoImage small/>
                     </span>
                 </div>
 

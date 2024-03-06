@@ -1,9 +1,9 @@
 import Login from '../components/Login';
-import TurboImage from '../img/LogoTurboBet.png';
 import { FaInstagram } from "react-icons/fa";
 import { TiSocialFacebookCircular } from "react-icons/ti";
 import { FaTiktok } from "react-icons/fa";
 import Carousel from '../components/Carousel';
+import LogoImage from '../components/LogoImage';
 
 function LoginPage() {
 
@@ -17,7 +17,7 @@ function LoginPage() {
             <div className="hidden lg:flex flex-col w-1/2 items-center justify-center h-full">
                 
                 <div>
-                    <img src={TurboImage} className="w-80 h-auto mb-10" alt="TurboImage"></img> 
+                    <LogoImage big/>
                 </div>
 
                 {/* <div>
