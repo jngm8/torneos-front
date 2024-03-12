@@ -27,14 +27,11 @@ function App() {
         <IntlProvider locale={navigator.language} messages={messages}>
             <Routes>
                 <Route path="/*" element={<Layout />} />
-                
+
+                    <Route path="/" element={<Home />} />
                     <Route path="login" element={<Login />} />
                     <Route path="register" element={<Register />} />
                     <Route path="unauthorized" element={<Unauthorized />} />
-
-                    <Route element={<RequireAuth allowedRoles={"user"}/>}>
-                        <Route path="/" element={<Home />} />
-                    </Route>
 
                     <Route element={<RequireAuth allowedRoles={"admin"}/>}>
                         <Route path="/admin" element={<HomeAdmin />} />

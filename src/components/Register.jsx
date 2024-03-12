@@ -203,14 +203,14 @@ function Register() {
 
 
             </form>
-            <p className='flex justify-center  items-center mt-2'>
+            <div className='flex justify-center  items-center mt-2'>
                     <div className='font-italic'><FormattedMessage id="PreguntaReg"/></div>
                     <span className="ml-2 line">
                         <Link to={"/login"}>
                             <Button nocustom><FormattedMessage id="UneteReg"/></Button>
                         </Link>                      
                     </span>
-            </p>
+            </div>
 
         </div>
        )}

@@ -3,23 +3,27 @@ import Button from "./Button";
 import { useState } from "react";
 import { FormattedMessage, useIntl  } from 'react-intl';
 import  LogoImage  from "./LogoImage";
+import useAuth from "../hooks/useAuth";
+import { CgProfile } from "react-icons/cg";
+
 
 function NavBar() {
 
-        const intl = useIntl()
+    const intl = useIntl();
+    const {auth} = useAuth();
 
 
     let Links = [
         {name: intl.formatMessage({ id: 'Nav1' }), link:"/"},
         {name:intl.formatMessage({ id: 'Nav2' }), link:"/"},
         {name: intl.formatMessage({ id: 'Nav3' }), link:"/admin"},
-        {name: intl.formatMessage({ id: 'Nav4' }), link:"/login"},
+        {name: intl.formatMessage({ id: 'Nav5' }), link:"/"}
     ]
 
     let [open,setOpen] = useState();
 
     return (
-        <div className="shadow-md w-full fixed top-0 left-0">
+        <div className="shadow-md w-full fixed top-0 left-0 font-squada-one">
             <div className="md:flex flex items-center justify-between bg-white py-4 md:px-10 px-7">
 
                 <div className="font-bold text-2x1 cursor-pointer flex items-center font-Poppins text-gray-800">
@@ -44,6 +48,18 @@ function NavBar() {
                             </li>
                         ) })
                     }
+
+                    <div>
+                        {auth?.username ? (
+                        <div className="ml-5 flex items-center text-lg"> <CgProfile className="mr-1" /> {auth.username}</div>
+                        ) : (
+                        <Link to="/login">
+                            <Button nvgtbutton rounded><FormattedMessage id="Login"/></Button>
+                        </Link>
+                        )}
+                    </div>
+
+
                 </ul>
 
             </div>

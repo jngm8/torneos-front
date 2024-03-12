@@ -40,8 +40,9 @@
 
     "Nav1": "Tournaments",
     "Nav2": "Results", 
-    "Nav3": "Rankings",
-    "Nav4": "Join now!"
+    "Nav3": "Admin",
+    "Nav4": "Join now!",
+    "Nav5": "Rankings"
 
 
 }

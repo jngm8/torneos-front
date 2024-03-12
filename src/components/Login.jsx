@@ -51,7 +51,7 @@ function Login() {
             const accessToken = response?.data?.accessToken;
             const roles = response?.data?.roles;
 
-            console.log(accessToken, roles);
+            console.log(accessToken, roles, username);
    
             
             setAuth({username,password,accessToken,roles});
@@ -124,14 +124,14 @@ function Login() {
                 <img src={Google} alt="Google Logo" className="w-4 h-4 rounded-full" />
                 <span><FormattedMessage id="GoogleIS"/></span>
             </Button>
-            <p className='flex justify-center  items-center mt-2'>
+            <div className='flex justify-center  items-center mt-2'>
                 <div className='font-italic'><FormattedMessage id="PreguntaRegistroIS"/></div>
                 <span className="ml-2 line">
                     <Link to={"/register"}>
                         <Button nocustom><FormattedMessage id="RegistrarmeIS"/></Button>
                     </Link>
                 </span>
-            </p>
+            </div>
         </div>
     )
 }
