@@ -39,8 +39,12 @@
     "Nav2": "Resultados", 
     "Nav3": "Rankings",
     "Nav4": "¡Unete!",
-    "Nav5": "Puntos"
+    "Nav5": "Puntos",
 
 
+    "CrearTorneo":"Crear Torneo",
+    "MisTorneos":"Crear Torneo",
+    "EditarPerfil": "Editar perfil",
 
+    "WAdmin":"Bienvenido Admin: "
 }

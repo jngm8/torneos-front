@@ -42,7 +42,14 @@
     "Nav2": "Results", 
     "Nav3": "Admin",
     "Nav4": "Join now!",
-    "Nav5": "Rankings"
+    "Nav5": "Rankings",
+
+    "CrearTorneo":"Create Tournament",
+    "MisTorneos":"My tournaments",
+    "EditarPerfil":"Edit profile",
+
+    "WAdmin":"Welcome admin: "
+
 
 
 }

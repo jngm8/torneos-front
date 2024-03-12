@@ -4,6 +4,8 @@ import { TbTournament } from "react-icons/tb";
 import { MdEdit } from "react-icons/md";
 import LogoImage from '../components/LogoImage';
 import useAuth from "../hooks/useAuth";
+import { FormattedMessage } from 'react-intl';
+
 
 function HomeAdmin(){
 
@@ -14,9 +16,9 @@ function HomeAdmin(){
 
             <div className="w-full flex flex-col items-center justify-center lg:w-1/2 bg-custom-green">
             
-                <Button primary rounded marginbtm bigLetter><MdFileUpload className="inline"/><span>Crear Torneo</span></Button>
-                <Button primary rounded marginbtm bigLetter><TbTournament className="inline" /><span>Mis torneos</span></Button>
-                <Button primary rounded marginbtm bigLetter><MdEdit className="inline"/><span></span>Editar perfil</Button>
+                <Button primary rounded marginbtm bigLetter><MdFileUpload className="inline"/><span><FormattedMessage id="CrearTorneo"/></span></Button>
+                <Button primary rounded marginbtm bigLetter><TbTournament className="inline" /><span><FormattedMessage id="MisTorneos"/></span></Button>
+                <Button primary rounded marginbtm bigLetter><MdEdit className="inline"/><span></span><FormattedMessage id="Editar perfil"/></Button>
             </div>
 
             <div className="hidden lg:flex flex-col w-1/2 items-center justify-center h-full">
@@ -24,7 +26,7 @@ function HomeAdmin(){
                 <LogoImage big/>
 
                 <div className="flex text-5xl">
-                    Welcome Admin 
+                    <FormattedMessage id="WAdmin"/> 
                     <div className="ml-3 text-green-500 animate-pulse">{auth?.username}</div>
                 </div>
                 
