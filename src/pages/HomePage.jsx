@@ -9,7 +9,7 @@ function Home() {
                 <NavBar/>
             </div>
             <div className='mt-20'>
-                <Carousel />
+                <Carousel  big/>
             </div>
         </div>
 

@@ -121,7 +121,7 @@ function Login() {
             </form>
 
             <Button secondary rounded outline>
-                <img src={Google} alt="Google Logo" className="w-4 h-4 rounded-full" />
+                <img src={Google} alt="Google Logo" className="w-4 h-4 rounded-full ml-5" />
                 <span><FormattedMessage id="GoogleIS"/></span>
             </Button>
             <div className='flex justify-center  items-center mt-2'>

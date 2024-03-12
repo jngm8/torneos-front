@@ -20,9 +20,9 @@ function LoginPage() {
                     <LogoImage big/>
                 </div>
 
-                {/* <div>
-                    <Carousel />
-                </div> */}
+                {/* <Carousel small /> */}
+
+
                 <div className='flex mt-50 space-x-20 animate-bounce'>
                     <a href="https://www.instagram.com/turbobet_" target="_blank" rel="noopener noreferrer">
                         <FaInstagram className="text-5xl hover:scale-110 transition duration-300" />

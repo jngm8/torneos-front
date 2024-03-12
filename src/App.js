@@ -1,14 +1,14 @@
-import Home from './pages/Home';
+import Home from './pages/HomePage';
 import Login from './pages/LoginPage';
 import Register from './pages/RegisterPage';
-import Unauthorized from "./pages/Unauthorized";
+import Unauthorized from "./pages/UnauthorizedPage";
 import Layout from './components/Layout';
 import {  IntlProvider } from 'react-intl';
 import localEs from './locales/es.json';
 import localEn from './locales/en.json';
 import {Routes, Route} from "react-router-dom";
 import RequireAuth from './components/RequireAuth';
-import HomeAdmin from './pages/HomeAdmin';
+import HomeAdmin from './pages/HomeAdminPage';
 
 
 

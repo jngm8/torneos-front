@@ -10,7 +10,7 @@ function Button({disabled, children, primary, secondary, success, warning, dange
         'border-yellow-400 bg-yellow-400 text-white': warning,
         'bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded': danger,
         'bg-white tracking-8': outline,
-        'rounded-full flex space-x-5': rounded,
+        'rounded-full flex space-x-4': rounded,
         'text-gray-500': primary && outline,
         'text-blue-600': secondary && outline,
         'text-green-500': success && outline,
