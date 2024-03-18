@@ -16,7 +16,7 @@ function Register() {
     const userRef = useRef(null);
     const errRef = useRef();
 
-
+    // Username states
     const [username,setUsername] = useState('');
     const [validName,setValidName] = useState(false);
     const [userFocus,setUserFocus] = useState(false);
@@ -42,21 +42,18 @@ function Register() {
     // Validate username with the regex
     useEffect(() => {
         setValidName(USER_REGEX.test(username));
-    }, [username])
+    }, [USER_REGEX, username])
 
     // Validate password with the regex
     useEffect(() => {
         setValidPwd(PWD_REGEX.test(password));
         setValidMatch(password === matchPwd);
-    }, [password, matchPwd])
+    }, [password, matchPwd, PWD_REGEX])
 
-    // If one of the field are changed, take out the err message until it passes the regex
+    // Take out the err message until it passes the regex
     useEffect(() => {
         setErrMsg('');
     }, [username, password, matchPwd])
-
-    // const navigate = useNavigate();
-
 
     const handleSubmit = async (event) => {
         event.preventDefault();

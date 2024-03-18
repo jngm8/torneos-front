@@ -1,0 +1,40 @@
+{
+  "tournaments": [
+    {
+      "title": "TFC Open",
+      "address": "Club la Verdieri",
+      "date": "28/03/24",
+      "id": 1
+    },
+    {
+      "title": "TurboBet",
+      "address": "Los Heroes",
+      "date": "28/04/24",
+      "id": 2
+    },
+    {
+      "title": "Andes Cup",
+      "address": "Calle 1ra 45",
+      "date": "2024-04-06",
+      "id": 3
+    },
+    {
+      "title": "Padel Tour",
+      "address": "Exito Colina",
+      "date": "2024-03-28",
+      "id": 4
+    },
+    {
+      "title": "Tennis Paradise",
+      "address": "Indian Wells",
+      "date": "2024-05-11",
+      "id": 5
+    },
+    {
+      "title": "Champions League",
+      "address": "Santiago Bernabeu",
+      "date": "28/04/20",
+      "id": 6
+    }
+  ]
+}

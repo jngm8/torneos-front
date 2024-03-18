@@ -9,6 +9,8 @@ import localEn from './locales/en.json';
 import {Routes, Route} from "react-router-dom";
 import RequireAuth from './components/RequireAuth';
 import HomeAdmin from './pages/HomeAdminPage';
+import CreateTournamentPage from './pages/CreateTournamentPage';
+import TournamentsPage from './pages/TournamentsPage';
 
 
 
@@ -32,9 +34,13 @@ function App() {
                     <Route path="login" element={<Login />} />
                     <Route path="register" element={<Register />} />
                     <Route path="unauthorized" element={<Unauthorized />} />
+                    <Route path="tournaments" element={<TournamentsPage />} />
+
+                    
 
                     <Route element={<RequireAuth allowedRoles={"admin"}/>}>
                         <Route path="/admin" element={<HomeAdmin />} />
+                        <Route path='/admin/createtournament' element={<CreateTournamentPage/>}/> 
                     </Route>
                 <Route/>
             </Routes>
