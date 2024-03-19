@@ -12,9 +12,11 @@ function NavBar() {
     const intl = useIntl();
     const {auth} = useAuth();
 
+    const {setOp} = useAuth();
+
 
     let Links = [
-        {name: intl.formatMessage({ id: 'Nav1' }), link:"/tournaments"},
+        {name: intl.formatMessage({ id: 'Nav1' }), link:"tournaments"},
         {name:intl.formatMessage({ id: 'Nav2' }), link:"/"},
         {name: intl.formatMessage({ id: 'Nav3' }), link:"/admin"},
         {name: intl.formatMessage({ id: 'Nav5' }), link:"/"}
@@ -34,6 +36,7 @@ function NavBar() {
 
                 <div onClick={() => setOpen(!open)} className="text-3x1 absolute right-8 top-5 cursor-pointer md:hidden">
                     <ion-icon style={{ fontSize: '1.9rem' }} name={ open ? 'close' : 'menu'}></ion-icon>
+                    {setOp(open)}
                 </div>
 
                 <ul className={`md:flex md:items-center md:pb-0 pb-12 

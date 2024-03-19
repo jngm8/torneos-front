@@ -29,7 +29,11 @@ function Login() {
 
 
     const navigate = useNavigate();
+
+    // Get the currect location URL and some properties
     const location = useLocation();
+
+    // Get where they came from or take them to the home
     const from = location?.state?.from.pathname ||  "/" ;
 
     const handleSubmit = async (event) => {
@@ -57,7 +61,6 @@ function Login() {
             setAuth({username,password,accessToken,roles});
             setUsername('');
             setPassword('');
-            // navigate("/");
             navigate(from, { replace: true });
 
         } catch (error) {

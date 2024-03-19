@@ -2,7 +2,6 @@ import { useState } from "react";
 import Button from "./Button";
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import { format } from 'date-fns';
 
 
 
@@ -25,9 +24,6 @@ function CreateTournament({onCreate}){
         setselectedDate("");
 
     }
-
-
-    const formattedDate = selectedDate ? format(new Date(selectedDate), 'yyyy-MM-dd') : '';
 
     return (
         <div className="font-squada-one">
@@ -58,7 +54,6 @@ function CreateTournament({onCreate}){
                         dateFormat="dd/MM/yyyy"
                         placeholderText="Select a date"
                         className="bg-green-100"
-                        customInput={<input value={formattedDate} readOnly />}
                         />
                 
                 </div>

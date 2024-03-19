@@ -42,13 +42,13 @@ function Register() {
     // Validate username with the regex
     useEffect(() => {
         setValidName(USER_REGEX.test(username));
-    }, [USER_REGEX, username])
+    }, [username])
 
     // Validate password with the regex
     useEffect(() => {
         setValidPwd(PWD_REGEX.test(password));
         setValidMatch(password === matchPwd);
-    }, [password, matchPwd, PWD_REGEX])
+    }, [password, matchPwd])
 
     // Take out the err message until it passes the regex
     useEffect(() => {

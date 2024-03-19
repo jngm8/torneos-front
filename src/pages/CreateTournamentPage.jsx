@@ -1,7 +1,5 @@
 import { useState } from "react";
 import CreateTournament from "../components/CreateTournaments";
-import TournamentList from "../components/TournamentList";
-import TournamentsPage from "./TournamentsPage";
 import axios from 'axios';
 
 

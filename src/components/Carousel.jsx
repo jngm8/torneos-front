@@ -72,6 +72,7 @@ function Carousel({big,small}) {
                <BsChevronCompactRight onClick={nextImage} size={30}/> 
             </div>
 
+            {/* Show the dots and when cliked go to that image */}
             <div className='flex top-4 justify-center py-2'>
                 {slides.map((_slide,slideIndex) => (
                     <div className='text-1xl cursor-pointer' 
