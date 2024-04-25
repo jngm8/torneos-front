@@ -19,7 +19,6 @@ function NavBar() {
         {name: intl.formatMessage({ id: 'Nav1' }), link:"tournaments"},
         {name:intl.formatMessage({ id: 'Nav2' }), link:"/"},
         {name: intl.formatMessage({ id: 'Nav3' }), link:"/admin"},
-        {name: intl.formatMessage({ id: 'Nav5' }), link:"/"}
     ]
 
     let [open,setOpen] = useState();
@@ -57,7 +56,7 @@ function NavBar() {
                         <div className="ml-5 flex items-center text-lg"> <CgProfile className="mr-1" /> {auth.username}</div>
                         ) : (
                         <Link to="/login">
-                            <Button nvgtbutton rounded><FormattedMessage id="Login"/></Button>
+                            <Button nvgtbutton rounded><FormattedMessage id="TituloIS"/></Button>
                         </Link>
                         )}
                     </div>

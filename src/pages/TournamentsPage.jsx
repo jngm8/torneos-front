@@ -7,7 +7,7 @@ function TournamentsPage() {
     const [tournamentList,setTournamentList] = useState([]);
 
     const fetchTournaments = async () => {
-        const response = await axios.get('http://localhost:3002/tournaments')
+        const response = await axios.get('http://localhost:3001/tournaments')
 
         setTournamentList(response.data);        
     }

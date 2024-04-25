@@ -19,7 +19,7 @@ function Button({disabled, children, primary, secondary, success, warning, dange
         'border-none hover:text-blue-500 block text-left px-0 py-1': nocustom,
         "bg-green-500 font-Poppins md:ml-8 hover:bg-green-600 duration-500 text-white":nvgtbutton,
         "mb-3 tracking-2 inline":marginbtm,
-        "mt-12 tracking-2 inline":marginTop,
+        "mt-4 tracking-2 inline":marginTop,
         "border-gray-200 bg-gray-300":disabled,
         "text-4xl mb-10":bigLetter
     }));

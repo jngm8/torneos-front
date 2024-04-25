@@ -35,11 +35,10 @@
     "ExitosoReg": "Registro Exitoso",
     "IrAUnirmeReg": "Ir a inicio de sesión",
 
-    "Nav1": "Torneos",
-    "Nav2": "Resultados", 
-    "Nav3": "Rankings",
+    "Nav1": "TorneosEnVivo",
+    "Nav2": "MisTorneos", 
+    "Nav3": "Admin",
     "Nav4": "¡Unete!",
-    "Nav5": "Puntos",
 
 
     "CrearTorneo":"Crear Torneo",

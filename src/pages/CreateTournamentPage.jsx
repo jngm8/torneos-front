@@ -10,11 +10,10 @@ function CreateTournamentPage(){
 
     const [tournaments,setTournament] = useState([]);
 
-
     const createTournament = async (title,address,date) => {
 
 
-        const response = await axios.post('http://localhost:3002/tournaments',{
+        const response = await axios.post('http://localhost:3001/tournaments',{
             title,
             address,
             date

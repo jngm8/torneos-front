@@ -38,11 +38,10 @@
     "ExitosoReg": "Successful registration",
     "IrAUnirmeReg": "Go to SignIn",
 
-    "Nav1": "Tournaments",
-    "Nav2": "Results", 
+    "Nav1": "LiveTournaments",
+    "Nav2": "MyTournaments", 
     "Nav3": "Admin",
     "Nav4": "Join now!",
-    "Nav5": "Rankings",
 
     "CrearTorneo":"Create Tournament",
     "MisTorneos":"My tournaments",
