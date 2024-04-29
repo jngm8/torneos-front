@@ -19,7 +19,6 @@ function HomeAdmin(){
                 <Link to='/admin/createtournament'>
                     <Button primary rounded marginbtm bigLetter><MdFileUpload className="inline"/><span><FormattedMessage id="CrearTorneo"/></span></Button>
                 </Link>
-                <Button primary rounded marginbtm bigLetter><TbTournament className="inline" /><span><FormattedMessage id="MisTorneos"/></span></Button>
             </div>
 
             <div className="hidden lg:flex flex-col w-1/2 items-center justify-center h-full">

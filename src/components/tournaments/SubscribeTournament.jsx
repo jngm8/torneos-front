@@ -14,6 +14,10 @@ function SubscribeTournament() {
 
     const [success, setSuccess] = useState(false);
 
+    const errRef = useRef();
+    const [errMsg, setErrMsg] = useState('');
+
+
 
     // Options for the categories
 
@@ -44,22 +48,23 @@ function SubscribeTournament() {
         setSelection(option);
     }
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
         try{
 
-            axios.post("http://localhost:3001/users/"+auth?.id+"/tournaments/"+tournamentId,
+            const response = await axios.post("http://localhost:3001/users/"+auth?.id+"/tournaments/"+tournamentId,
             {
                 category: selection.value
             }
-            ).then(response => {console.log("Created Successfully: " + response.data);
-            }).catch(error => {console.error("error:" + error)
-            })
-
+            );
             setSuccess(true);
 
         } catch (error){
-            console.log("Error: " + error);
+            if(error.response?.status === 400){
+                setErrMsg("You are already subscribed to this tournament");
+            } else if (error.response?.status === 412){
+                setErrMsg("You are already subscribed to this tournament");
+            }
         }
 
 
@@ -68,7 +73,7 @@ function SubscribeTournament() {
     return (
         <>
         {success ? (
-                <section>
+                <section className='flex flex-col justify-center items-center min-h-screen bg-gray-200 font-squada-one'>
                     <h1 className='sucmessage'>Inscripcion Exitosa</h1>
                     <p className='flex justify-center items-center mt-2'>
                         <Link to={"/myTournaments"}>
@@ -77,9 +82,10 @@ function SubscribeTournament() {
                     </p>
                 </section>
             ) : (
-            <div className="flex justify-center items-center min-h-screen bg-gray-200">   
 
+            <div className="flex justify-center items-center min-h-screen bg-gray-200">   
                 <div className='text-center'>
+                <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
                     <form onSubmit={handleSubmit}>
                         <div className='text-9xl font-squada-one text'>Hi {auth?.username} </div>
                         <div className='text-5xl font-squada-one'>Participate in our tournament by selecting a category</div>

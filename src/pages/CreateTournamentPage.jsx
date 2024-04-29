@@ -1,6 +1,7 @@
 import { useState } from "react";
 import CreateTournament from "../components/tournaments/CreateTournaments";
 import axios from 'axios';
+import useAuth from "../hooks/useAuth";
 
 
 
@@ -10,21 +11,39 @@ function CreateTournamentPage(){
 
     const [tournaments,setTournament] = useState([]);
 
-    const createTournament = async (title,address,date) => {
+    // For the auth token
+    const {auth} = useAuth();
+
+    const createTournament = async (name,address,date,image,description) => {
 
 
-        const response = await axios.post('http://localhost:3001/tournaments',{
-            title,
-            address,
-            date
-        });
+        try {
+            const response = await axios.post('http://localhost:3001/tournaments', {
+                name,
+                address,
+                date,
+                image,
+                description
+            }, {
+                headers: {
+                    'Authorization': `Bearer ${auth.accessToken}`
+                }
+            });
+
+            const updatedTournaments = [
+                ...tournaments,
+                response.data
+            ]
+    
+            setTournament(updatedTournaments);
+            console.log('Response:', response.data);
+            // Handle successful response
+        } catch (error) {
+            console.error('Error:', error.response.data);
+            // Handle error response
+        }
         
-        const updatedTournaments = [
-            ...tournaments,
-            response.data
-        ]
-
-        setTournament(updatedTournaments);
+        
     } 
 
 
