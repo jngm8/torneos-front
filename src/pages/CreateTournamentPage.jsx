@@ -1,5 +1,5 @@
 import { useState } from "react";
-import CreateTournament from "../components/CreateTournaments";
+import CreateTournament from "../components/tournaments/CreateTournaments";
 import axios from 'axios';
 
 

@@ -1,10 +1,10 @@
 import React, { useRef, useState, useEffect } from 'react';
-import Button from './Button';
+import Button from '../Button';
 import axios from 'axios';
 import { useNavigate, Link, useLocation } from "react-router-dom";
-import Google from '../img/google.jpg';
+import Google from '../../img/google.jpg';
 import { FormattedMessage, useIntl  } from 'react-intl';
-import useAuth from '../hooks/useAuth';
+import useAuth from '../../hooks/useAuth';
 
 function Login() {
 

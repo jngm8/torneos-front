@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import TournamentList from "../components/TournamentList";
+import TournamentList from "../components/tournaments/TournamentList";
 import axios from 'axios';
 
 function TournamentsPage() {

@@ -17,7 +17,7 @@ function NavBar() {
 
     let Links = [
         {name: intl.formatMessage({ id: 'Nav1' }), link:"tournaments"},
-        {name:intl.formatMessage({ id: 'Nav2' }), link:"/"},
+        {name:intl.formatMessage({ id: 'Nav2' }), link:"/myTournaments"},
         {name: intl.formatMessage({ id: 'Nav3' }), link:"/admin"},
     ]
 

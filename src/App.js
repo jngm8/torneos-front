@@ -8,8 +8,9 @@ import RequireAuth from './components/RequireAuth';
 import HomeAdmin from './pages/HomeAdminPage';
 import CreateTournamentPage from './pages/CreateTournamentPage';
 import TournamentsPage from './pages/TournamentsPage';
-import TournamentDetail from './components/TournamentDetail';
-import SubscribeTournament from './components/SubscribeTournament';
+import TournamentDetail from './components/tournaments/TournamentDetail';
+import SubscribeTournament from './components/tournaments/SubscribeTournament';
+import MyTournamentsPage from './pages/MyTournamentsPage';
 
 
 
@@ -26,10 +27,12 @@ function App() {
                 <Route path="unauthorized" element={<Unauthorized />} />
                 <Route path="tournaments" element={<TournamentsPage />} />
                 <Route path="/tournaments/:tournamentId" element={<TournamentDetail/>}/>
-                <Route path="/tournaments/subscribe/:tournamentId" element={<SubscribeTournament/>}/>
 
 
-                
+                <Route  element={<RequireAuth allowedRoles={"user"}/>} >
+                    <Route path="/tournaments/subscribe/:tournamentId" element={<SubscribeTournament/>}/>
+                    <Route path="/mytournaments" element={<MyTournamentsPage/>}/>
+                </Route>
 
                 <Route element={<RequireAuth allowedRoles={"admin"}/>}>
                     <Route path="/admin" element={<HomeAdmin />} />

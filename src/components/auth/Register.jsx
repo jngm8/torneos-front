@@ -1,5 +1,5 @@
 import React, {useState,useRef,useEffect} from 'react';
-import Button from './Button';
+import Button from '../Button';
 import axios from 'axios';
 import {Link} from "react-router-dom";
 import { faCheck, faTimes, faInfoCircle } from "@fortawesome/free-solid-svg-icons";

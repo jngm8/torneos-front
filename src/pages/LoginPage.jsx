@@ -1,4 +1,4 @@
-import Login from '../components/Login';
+import Login from '../components/auth/Login';
 import { FaInstagram } from "react-icons/fa";
 import { TiSocialFacebookCircular } from "react-icons/ti";
 import { FaTiktok } from "react-icons/fa";
