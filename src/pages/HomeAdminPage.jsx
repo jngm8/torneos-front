@@ -1,7 +1,5 @@
 import Button from "../components/Button";
 import { MdFileUpload } from "react-icons/md";
-import { TbTournament } from "react-icons/tb";
-import { MdEdit } from "react-icons/md";
 import LogoImage from '../components/LogoImage';
 import useAuth from "../hooks/useAuth";
 import { FormattedMessage } from 'react-intl';

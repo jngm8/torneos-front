@@ -1,24 +1,14 @@
 import NavBar from "../components/NavBar";
-import Carousel from '../components/Carousel';
-import useAuth from "../hooks/useAuth";
-import { Fragment } from "react";
 
-function Home() {
 
-    const {op} = useAuth();
+function Home({component}) {
 
     return(
         <div>
             <div>
-                <NavBar/>
+                <NavBar component={component}/>
             </div>
-            <div className='mt-20'>
-                {op ? 
-                (<Fragment/>)
-                :
-                (<Carousel  big/>)
-                }
-            </div>
+
         </div>
 
     )

@@ -2,7 +2,6 @@ import Login from '../components/auth/Login';
 import { FaInstagram } from "react-icons/fa";
 import { TiSocialFacebookCircular } from "react-icons/ti";
 import { FaTiktok } from "react-icons/fa";
-import Carousel from '../components/Carousel';
 import LogoImage from '../components/LogoImage';
 
 function LoginPage() {

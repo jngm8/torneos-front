@@ -8,8 +8,8 @@ function TournamentList({tournamentsList}){
     })
 
     return (
-        <div className="flex flex-wrap h-auto bg-gray-100">
-            {renderedTournaments}
+        <div className="fixed top-[72px] left-0 w-full overflow-y-auto h-full pb-14">
+            <div className="flex flex-wrap justify-center bg-gray-100 p-4">{renderedTournaments}</div>
         </div>
     )
 

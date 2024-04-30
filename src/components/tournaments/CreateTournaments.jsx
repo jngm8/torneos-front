@@ -59,6 +59,7 @@ function CreateTournament({onCreate}){
                                 value={name} 
                                 onChange={(event) => setName(event.target.value)}
                                 className='border-2 border-gray-200 rounded-xl p-4 bg-transparent'
+                                minLength="12"
                                 />
 
                                 <label className='text-lg font-medium'>Tournament Address</label> 
@@ -88,15 +89,12 @@ function CreateTournament({onCreate}){
                                     <DatePicker
                                         selected={selectedDate}
                                         onChange={(date) => setselectedDate(date)}
-                                        dateFormat="dd/MM/yyyy"
+                                        dateFormat="yyyy-MM-dd"
                                         placeholderText="Select a date"
                                         className="bg-green-100"
                                         />
                                 </div>
-
-                            
                             </div>
-
                             <Button disabled={!name || !address || !imageUrl || !description || !selectedDate ? true : false}primary marginTop>Submit</Button>
 
                         </form> 

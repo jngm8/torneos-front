@@ -1,5 +1,3 @@
-import Button from "../components/Button";
-
 
 function Unauthorized() {
   return (
@@ -12,7 +10,7 @@ function Unauthorized() {
             <p className="text-gray-700 mb-4">
                 Please contact the administrator if you believe this is an error.
             </p>
-            <Button primary rounded>Go Back</Button>
+            {/* <Button primary rounded>Go Back</Button> */}
         </div>
     </div>
   )
