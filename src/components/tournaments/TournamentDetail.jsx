@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import Button from "../Button";
 import { Link } from "react-router-dom";
-
+import { FormattedMessage } from 'react-intl';
 
 function TournamentDetail() {
 
@@ -27,42 +27,57 @@ function TournamentDetail() {
 
     return (
         <div className="w-full m-auto py-2 px-4 relative group m-w-[1000px] h-[300px] font-squada-one">
-            <div style={{backgroundImage: `url(${tournament.image})`}} className='w-full h-full rounded-2xl bg-center bg-cover'></div>
-                <div className="flex flex-col justify-between text-4xl">
-                    <div className="flex">
-                        <div className="text-3xl text-gray-700 mr-5 mt-1">
-                            Name: 
+            <div style={{backgroundImage: `url(${tournament.image})`}} className='w-full h-full rounded-2xl bg-center bg-cover'/>
+                <div className="flex">
+
+                    <div className="w-3/4 overflow-y-auto justify-between text-4xl mt-5 bg-green-100 rounded-lg p-5 mb-5 ">
+                        <div className="flex">
+                            <div className="text-3xl text-gray-700 mr-3 mt-1">
+                                <FormattedMessage id="NombreTorneo"/> 
+                            </div>
+                            {tournament.name}
                         </div>
-                        {tournament.name}
-                    </div>
 
-                    <div className="flex">
-                        <div className="text-3xl text-gray-700 mr-5 mt-1">
-                            Date:
+                        <div className="flex">
+                            <div className="text-3xl text-gray-700 mr-3 mt-1">
+                                <FormattedMessage id="FechaInicio"/> 
+                            </div>
+                            {tournament.date}
                         </div>
-                        {tournament.date}
-                    </div>
 
-                    <div className="flex">
-                        <div className="text-3xl text-gray-700 mr-5 mt-1">
-                            Location:
+                            
+                        <div className="flex">
+                            <div className="text-3xl text-gray-700 mr-3 mt-1">
+                                <FormattedMessage id="FechaFin"/> 
+                            </div>
+                            {tournament.dateEnd}
                         </div>
-                         {tournament.address}
-                    </div>
-     
-                </div>
 
-                <div className="bg-slate-200 flex text-2xl rounded-lg">
-                    <div className="text-3xl text-gray-700 mr-5 mt-1">
-                         Description:
-                    </div>
-                    {tournament.description}
-                </div>
+                        <div className="flex">
+                            <div className="text-3xl text-gray-700 mr-3 mt-1">
+                                <FormattedMessage id="DireccionTorneo"/>                             
+                            </div>
+                            {tournament.address}
+                        </div>
 
-                <div className="text-2xl items-center text-center">
-                   <Link to={`/tournaments/subscribe/${tournament.id}`}>
-                        <Button success marginTop outline rounded>Inscribirme</Button>
-                   </Link> 
+                        <div className="flex text-2xl rounded-lg">
+                            <div className="text-3xl text-gray-700 mr-3">
+                                <FormattedMessage id="Descripcion"/>                             
+                            </div>
+                            {tournament.description}
+                        </div>
+            
+                    </div>
+                    <div className="flex flex-col items-center justify-center ml-20">
+                        <div className="w-1/4 text-3xl mt-2">
+                            <div className="flex justify-center animate-bounce"> 
+                                <Link to={`/tournaments/subscribe/${tournament.id}`}>
+                                    <Button success outline rounded><FormattedMessage id="InscripcionTorneo"/></Button>
+                                </Link>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
         </div>
     )

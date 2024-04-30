@@ -1,4 +1,7 @@
 {
+
+    "Saludo":"Hi  ",
+
     "TituloIS" : "Login",
     "BienvenidaIS" : "Welcome!",
     "UsuarioIS" : "User",
@@ -22,10 +25,10 @@
     "ErrorIS2": "Missing username or password",
     "ErrorIS3": "Incorrect username or password",
     "ErrorIS4": "Login failed, please try again later",
-
     "ErrorReg1": "The server is not responding",
     "ErrorReg2": "The user already exists!",
     "ErrorReg3": "Registration failed",
+    "ErrorAlreadySubscribed": "You are already enrolled to this tournament",
 
     "UsuarioVal1": "4 to 24 characters. Must start with a letter. Letters,",
     "UsuarioVal2": "numbers, hyphens allowed.",
@@ -47,7 +50,34 @@
     "MisTorneos":"My tournaments",
     "EditarPerfil":"Edit profile",
 
-    "WAdmin":"Welcome admin: "
+    "WAdmin":"Welcome admin: ",
+
+    "InscripcionTorneo": "Enroll tournament",
+    "IrTorneosCreados": "Go to tournaments",
+
+    "NombreTorneo": "Tournament Name",
+    "DireccionTorneo": "Address",
+    "ImagenURL": "Image URL",
+    "Descripcion": "Description",
+    "FechaInicio":"Select Starting Date: ",
+    "FechaFin": "Select Finishing Date",
+
+    "FechaInicioCard": "Starting Date:  ",
+    "FechaFinCard": "Finishing Date:  ",
+    "Detalles": "Details",
+
+    "IraMisTorneos":"Go to my enrolled tournaments",
+
+    "CategorySelection":"Participate in our tournament by selecting a category",
+
+    "Unauthorized1": "Oops! It seems you are not authorized to access this page.",
+    "Unauthorized2": "Please contact the administrator if you believe this is an error.",
+    "Unauthorized3": "401 unauthorized"
+
+
+
+    
+
 
 
 

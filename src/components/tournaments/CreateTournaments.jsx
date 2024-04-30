@@ -3,6 +3,8 @@ import Button from "../Button";
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { Link } from "react-router-dom";
+import { FormattedMessage } from 'react-intl';
+
 
 
 
@@ -11,6 +13,7 @@ function CreateTournament({onCreate}){
     const [name,setName] = useState("");
     const [address,setAddress] = useState("");
     const [selectedDate,setselectedDate] = useState("")
+    const [selectedDateEnd,setselectedDateEnd] = useState("")
     const [description,setDescription] = useState("")
     const [imageUrl,setImageUrl] = useState("")
 
@@ -20,7 +23,7 @@ function CreateTournament({onCreate}){
 
         event.preventDefault();
 
-        onCreate(name,address,selectedDate,imageUrl,description);
+        onCreate(name,address,selectedDate,selectedDateEnd,imageUrl,description);
 
         setName("");
 
@@ -32,6 +35,8 @@ function CreateTournament({onCreate}){
 
         setDescription("");
 
+        setselectedDateEnd("");
+
         setSuccess(true);
 
     }
@@ -40,10 +45,10 @@ function CreateTournament({onCreate}){
        <>
         {success ? (
                 <section>
-                    <h1 className='sucmessage'>Inscripcion Exitosa</h1>
+                    <h1 className='sucmessage'><FormattedMessage id="InscripcionTorneo"/></h1>
                     <p className='flex justify-center items-center mt-2'>
                         <Link to={"/tournaments"}>
-                                <Button primary rounded>Ir a torneos creados</Button>
+                                <Button primary rounded><FormattedMessage id="IrTorneosCreados"/></Button>
                         </Link>  
                     </p>
                 </section>
@@ -54,7 +59,7 @@ function CreateTournament({onCreate}){
 
                             <div className="flex flex-col">
 
-                                <label className='text-lg font-medium'>Tournament name</label> 
+                                <label className='text-lg font-medium'><FormattedMessage id="NombreTorneo"/></label> 
                                 <input 
                                 value={name} 
                                 onChange={(event) => setName(event.target.value)}
@@ -62,21 +67,21 @@ function CreateTournament({onCreate}){
                                 minLength="12"
                                 />
 
-                                <label className='text-lg font-medium'>Tournament Address</label> 
+                                <label className='text-lg font-medium'><FormattedMessage id="DireccionTorneo"/></label> 
                                 <input 
                                 value={address} 
                                 onChange={(event) => setAddress(event.target.value)}
                                 className='border-2 border-gray-200 rounded-xl p-4 mt-1 bg-transparent'
                                 />
 
-                                <label className='text-lg font-medium'>Image URL</label> 
+                                <label className='text-lg font-medium'><FormattedMessage id="ImagenURL"/></label> 
                                 <input 
                                 value={imageUrl} 
                                 onChange={(event) => setImageUrl(event.target.value)}
                                 className='border-2 border-gray-200 rounded-xl p-4 mt-1 bg-transparent'
                                 />
 
-                                <label className='text-lg font-medium'>Description</label> 
+                                <label className='text-lg font-medium'><FormattedMessage id="Descripcion"/></label> 
                                 <textarea
                                     value={description}
                                     onChange={(event) => setDescription(event.target.value)}
@@ -85,17 +90,28 @@ function CreateTournament({onCreate}){
                                 />
 
                                 <div className="flex mt-5">
-                                    <label className='text-lg font-medium mr-5'>Tournament Date: </label> 
+                                    <label className='text-lg font-medium mr-5'><FormattedMessage id="FechaInicio"/></label> 
                                     <DatePicker
                                         selected={selectedDate}
                                         onChange={(date) => setselectedDate(date)}
                                         dateFormat="yyyy-MM-dd"
-                                        placeholderText="Select a date"
+                                        placeholderText="Select an starting date"
+                                        className="bg-green-100"
+                                        />
+                                </div>
+
+                                <div className="flex mt-5">
+                                    <label className='text-lg font-medium mr-5'><FormattedMessage id="FechaFin"/></label> 
+                                    <DatePicker
+                                        selected={selectedDateEnd}
+                                        onChange={(date) => setselectedDateEnd(date)}
+                                        dateFormat="yyyy-MM-dd"
+                                        placeholderText="Select an end date"
                                         className="bg-green-100"
                                         />
                                 </div>
                             </div>
-                            <Button disabled={!name || !address || !imageUrl || !description || !selectedDate ? true : false}primary marginTop>Submit</Button>
+                            <Button disabled={!name || !address || !imageUrl || !description || !selectedDate || !selectedDateEnd ? true : false}primary marginTop>Submit</Button>
 
                         </form> 
                     </div>

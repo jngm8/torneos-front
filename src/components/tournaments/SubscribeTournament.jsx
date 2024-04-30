@@ -5,6 +5,8 @@ import axios from 'axios';
 import Dropdown from '../Dropdown';
 import Button from '../Button';
 import {Link} from "react-router-dom";
+import { FormattedMessage, useIntl} from 'react-intl';
+
 
 
 function SubscribeTournament() {
@@ -17,6 +19,7 @@ function SubscribeTournament() {
     const errRef = useRef();
     const [errMsg, setErrMsg] = useState('');
 
+    const intl = useIntl()
 
 
     // Options for the categories
@@ -60,10 +63,8 @@ function SubscribeTournament() {
             setSuccess(true);
 
         } catch (error){
-            if(error.response?.status === 400){
-                setErrMsg("You are already subscribed to this tournament");
-            } else if (error.response?.status === 412){
-                setErrMsg("You are already subscribed to this tournament");
+            if (error.response?.status === 412){
+                setErrMsg(intl.formatMessage({ id: 'ErrorAlreadySubscribed' }));
             }
         }
 
@@ -74,10 +75,10 @@ function SubscribeTournament() {
         <>
         {success ? (
                 <section className='flex flex-col justify-center items-center min-h-screen bg-gray-200 font-squada-one'>
-                    <h1 className='sucmessage'>Inscripcion Exitosa</h1>
+                    <h1 className='sucmessage'><FormattedMessage id="ExitosoReg"/></h1>
                     <p className='flex justify-center items-center mt-2'>
                         <Link to={"/myTournaments"}>
-                                <Button primary rounded>Ir a mis torneos</Button>
+                                <Button primary rounded><FormattedMessage id="IraMisTorneos"/></Button>
                         </Link>  
                     </p>
                 </section>
@@ -87,13 +88,13 @@ function SubscribeTournament() {
                 <div className='text-center'>
                 <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
                     <form onSubmit={handleSubmit}>
-                        <div className='text-9xl font-squada-one text'>Hi {auth?.username} </div>
-                        <div className='text-5xl font-squada-one'>Participate in our tournament by selecting a category</div>
+                        <div className='text-9xl font-squada-one text'><FormattedMessage id="Saludo"/> {auth?.username} </div>
+                        <div className='text-5xl font-squada-one'><FormattedMessage id="CategorySelection"/></div>
                         <div className="flex justify-center items-center space-x-4">
                             <div className="w-64"> 
                                 <Dropdown  options={options} selection={selection} handleSelection={handleSelection}/>
                             </div>
-                                <Button disabled={!selection ? true : false} primary rounded marginbtm marginTop>Incribirme</Button>
+                                <Button disabled={!selection ? true : false} primary rounded marginbtm marginTop><FormattedMessage id="InscripcionTorneo"/></Button>
                         </div>
 
                     </form>

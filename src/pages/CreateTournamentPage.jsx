@@ -14,7 +14,7 @@ function CreateTournamentPage(){
     // For the auth token
     const {auth} = useAuth();
 
-    const createTournament = async (name,address,date,image,description) => {
+    const createTournament = async (name,address,date,dateEnd,image,description) => {
 
 
         try {
@@ -22,6 +22,7 @@ function CreateTournamentPage(){
                 name,
                 address,
                 date,
+                dateEnd,
                 image,
                 description
             }, {
@@ -36,7 +37,6 @@ function CreateTournamentPage(){
             ]
     
             setTournament(updatedTournaments);
-            console.log('Response:', response.data);
             // Handle successful response
         } catch (error) {
             console.error('Error:', error.response.data);
