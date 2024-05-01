@@ -7,9 +7,17 @@ function TournamentsPage() {
     const [tournamentList,setTournamentList] = useState([]);
 
     const fetchTournaments = async () => {
-        const response = await axios.get('http://localhost:3001/tournaments')
 
-        setTournamentList(response.data);        
+        if(navigator.onLine){
+            const response = await axios.get('http://localhost:3001/tournaments')
+            setTournamentList(response.data);
+            localStorage.setItem("tournaments",JSON.stringify(response.data))
+        } else {
+            if(localStorage.getItem("tournaments")){
+                setTournamentList(JSON.parse(localStorage.getItem("tournaments")));
+            }
+        }
+     
     }
     useEffect(() => {
         fetchTournaments();

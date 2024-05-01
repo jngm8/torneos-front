@@ -7,6 +7,8 @@ import { BrowserRouter, Routes, Route} from "react-router-dom";
 import {  IntlProvider } from 'react-intl';
 import localEs from './locales/es.json';
 import localEn from './locales/en.json';
+import * as serviceWorkerRegistration from './serviceWorkerRegistration';
+
 
 const element = document.getElementById('root')
 const root = ReactDOM.createRoot(element);
@@ -18,6 +20,7 @@ if (navigator.language === "en") {
 } else {
     messages = localEs;
 }
+
 
 root.render(
         <IntlProvider locale={navigator.language} messages={messages}>
@@ -31,3 +34,4 @@ root.render(
         </IntlProvider>
 );
 
+serviceWorkerRegistration.register();
