@@ -1,5 +1,5 @@
 import React, {useState,useRef,useEffect} from 'react';
-import Button from './Button';
+import Button from '../Button';
 import axios from 'axios';
 import {Link} from "react-router-dom";
 import { faCheck, faTimes, faInfoCircle } from "@fortawesome/free-solid-svg-icons";
@@ -7,16 +7,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { FormattedMessage, useIntl  } from 'react-intl';
 
 function Register() {
-
     
-
     const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
     const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 
     const userRef = useRef(null);
     const errRef = useRef();
 
-
+    // Username states
     const [username,setUsername] = useState('');
     const [validName,setValidName] = useState(false);
     const [userFocus,setUserFocus] = useState(false);
@@ -50,13 +48,10 @@ function Register() {
         setValidMatch(password === matchPwd);
     }, [password, matchPwd])
 
-    // If one of the field are changed, take out the err message until it passes the regex
+    // Take out the err message until it passes the regex
     useEffect(() => {
         setErrMsg('');
     }, [username, password, matchPwd])
-
-    // const navigate = useNavigate();
-
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -203,14 +198,14 @@ function Register() {
 
 
             </form>
-            <p className='flex justify-center  items-center mt-2'>
+            <div className='flex justify-center  items-center mt-2'>
                     <div className='font-italic'><FormattedMessage id="PreguntaReg"/></div>
                     <span className="ml-2 line">
                         <Link to={"/login"}>
                             <Button nocustom><FormattedMessage id="UneteReg"/></Button>
                         </Link>                      
                     </span>
-            </p>
+            </div>
 
         </div>
        )}

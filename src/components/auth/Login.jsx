@@ -1,10 +1,10 @@
 import React, { useRef, useState, useEffect } from 'react';
-import Button from './Button';
+import Button from '../Button';
 import axios from 'axios';
 import { useNavigate, Link, useLocation } from "react-router-dom";
-import Google from '../img/google.jpg';
+import Google from '../../img/google.jpg';
 import { FormattedMessage, useIntl  } from 'react-intl';
-import useAuth from '../hooks/useAuth';
+import useAuth from '../../hooks/useAuth';
 
 function Login() {
 
@@ -29,7 +29,11 @@ function Login() {
 
 
     const navigate = useNavigate();
+
+    // Get the currect location URL and some properties
     const location = useLocation();
+
+    // Get where they came from or take them to the home
     const from = location?.state?.from.pathname ||  "/" ;
 
     const handleSubmit = async (event) => {
@@ -49,15 +53,15 @@ function Login() {
 
             
             const accessToken = response?.data?.accessToken;
-            const roles = response?.data?.roles;
+            const roles = response?.data?.role;
+            const id = response?.data?.id;
 
-            console.log(accessToken, roles);
+            console.log(accessToken, roles, username,id);
    
             
-            setAuth({username,password,accessToken,roles});
+            setAuth({username,password,accessToken,roles,id});
             setUsername('');
             setPassword('');
-            // navigate("/");
             navigate(from, { replace: true });
 
         } catch (error) {
@@ -121,17 +125,17 @@ function Login() {
             </form>
 
             <Button secondary rounded outline>
-                <img src={Google} alt="Google Logo" className="w-4 h-4 rounded-full" />
+                <img src={Google} alt="Google Logo" className="w-4 h-4 rounded-full ml-5" />
                 <span><FormattedMessage id="GoogleIS"/></span>
             </Button>
-            <p className='flex justify-center  items-center mt-2'>
+            <div className='flex justify-center  items-center mt-2'>
                 <div className='font-italic'><FormattedMessage id="PreguntaRegistroIS"/></div>
                 <span className="ml-2 line">
                     <Link to={"/register"}>
                         <Button nocustom><FormattedMessage id="RegistrarmeIS"/></Button>
                     </Link>
                 </span>
-            </p>
+            </div>
         </div>
     )
 }

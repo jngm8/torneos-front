@@ -1,8 +1,7 @@
-import Login from '../components/Login';
+import Login from '../components/auth/Login';
 import { FaInstagram } from "react-icons/fa";
 import { TiSocialFacebookCircular } from "react-icons/ti";
 import { FaTiktok } from "react-icons/fa";
-import Carousel from '../components/Carousel';
 import LogoImage from '../components/LogoImage';
 
 function LoginPage() {
@@ -20,9 +19,9 @@ function LoginPage() {
                     <LogoImage big/>
                 </div>
 
-                {/* <div>
-                    <Carousel />
-                </div> */}
+                {/* <Carousel small /> */}
+
+
                 <div className='flex mt-50 space-x-20 animate-bounce'>
                     <a href="https://www.instagram.com/turbobet_" target="_blank" rel="noopener noreferrer">
                         <FaInstagram className="text-5xl hover:scale-110 transition duration-300" />

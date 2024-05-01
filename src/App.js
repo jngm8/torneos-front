@@ -1,47 +1,43 @@
-import Home from './pages/Home';
+import Home from './pages/HomePage';
 import Login from './pages/LoginPage';
 import Register from './pages/RegisterPage';
-import Unauthorized from "./pages/Unauthorized";
-import Layout from './components/Layout';
-import {  IntlProvider } from 'react-intl';
-import localEs from './locales/es.json';
-import localEn from './locales/en.json';
+import Unauthorized from "./pages/UnauthorizedPage";
 import {Routes, Route} from "react-router-dom";
 import RequireAuth from './components/RequireAuth';
-import HomeAdmin from './pages/HomeAdmin';
+import HomeAdmin from './pages/HomeAdminPage';
+import CreateTournamentPage from './pages/CreateTournamentPage';
+import TournamentsPage from './pages/TournamentsPage';
+import TournamentDetail from './components/tournaments/TournamentDetail';
+import SubscribeTournament from './components/tournaments/SubscribeTournament';
+import MyTournamentsPage from './pages/MyTournamentsPage';
+import NavBar from './components/NavBar';
+import Carousel from './components/Carousel';
 
 
 
 
 function App() {
 
-    let messages = null;
-
-    if (navigator.language === "en") {
-        messages = localEn;
-    } else {
-        messages = localEs;
-    }
-
     return (
-        <IntlProvider locale={navigator.language} messages={messages}>
-            <Routes>
-                <Route path="/*" element={<Layout />} />
-                
-                    <Route path="login" element={<Login />} />
-                    <Route path="register" element={<Register />} />
-                    <Route path="unauthorized" element={<Unauthorized />} />
+        <Routes>
+            <Route path="/" element={<Home component={<Carousel big/>} />}/>
+            <Route path="login" element={<Login />} />
+            <Route path="register" element={<Register />} />
+            <Route path="unauthorized" element={<NavBar component={<Unauthorized />}></NavBar>} />
+            <Route path="tournaments" element={<NavBar component={<TournamentsPage />}></NavBar>}  />
+            <Route path="/tournaments/:tournamentId" element={<TournamentDetail/>}/>
 
-                    <Route element={<RequireAuth allowedRoles={"user"}/>}>
-                        <Route path="/" element={<Home />} />
-                    </Route>
 
-                    <Route element={<RequireAuth allowedRoles={"admin"}/>}>
-                        <Route path="/admin" element={<HomeAdmin />} />
-                    </Route>
-                <Route/>
-            </Routes>
-        </IntlProvider> 
+            <Route  element={<RequireAuth allowedRoles={"user"}/>} >
+                <Route path="/tournaments/subscribe/:tournamentId" element={<SubscribeTournament/>}/>
+                <Route path="/mytournaments" element={<NavBar component={<MyTournamentsPage />}></NavBar>}/>
+            </Route>
+
+            <Route element={<RequireAuth allowedRoles={"admin"}/>}>
+                <Route path="/admin" element={<HomeAdmin />} />
+                <Route path='/admin/createtournament' element={<CreateTournamentPage/>}/> 
+            </Route>
+        </Routes>
     )
 }
 

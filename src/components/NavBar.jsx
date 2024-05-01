@@ -3,23 +3,47 @@ import Button from "./Button";
 import { useState } from "react";
 import { FormattedMessage, useIntl  } from 'react-intl';
 import  LogoImage  from "./LogoImage";
+import useAuth from "../hooks/useAuth";
+import { CgProfile } from "react-icons/cg";
+import { useEffect } from "react";
 
-function NavBar() {
 
-        const intl = useIntl()
+function NavBar({component}) {
 
+    const intl = useIntl();
+    const {auth} = useAuth();
 
     let Links = [
-        {name: intl.formatMessage({ id: 'Nav1' }), link:"/"},
-        {name:intl.formatMessage({ id: 'Nav2' }), link:"/"},
+        {name: intl.formatMessage({ id: 'Nav1' }), link:"/tournaments"},
+        {name:intl.formatMessage({ id: 'Nav2' }), link:"/myTournaments"},
         {name: intl.formatMessage({ id: 'Nav3' }), link:"/admin"},
-        {name: intl.formatMessage({ id: 'Nav4' }), link:"/login"},
     ]
 
-    let [open,setOpen] = useState();
+    const [open, setOpen] = useState(false);
+    const handleToggle = () => {
+        setOpen(!open)    
+    }
 
+    useEffect(() => {
+        const handleResize = () => {
+          // Check if the screen size meets  condition
+          if (window.innerWidth < 500) {
+            setOpen(true);
+          } else {
+            setOpen(false);
+          }
+        };
+    
+        // Call handleResize initially and add event listener
+        handleResize();
+        window.addEventListener('resize', handleResize);
+    
+        // Clean up by removing event listener
+        return () => window.removeEventListener('resize', handleResize);
+      }, []);
+    
     return (
-        <div className="shadow-md w-full fixed top-0 left-0">
+        <div className="shadow-md w-full fixed top-0 left-0 font-squada-one">
             <div className="md:flex flex items-center justify-between bg-white py-4 md:px-10 px-7">
 
                 <div className="font-bold text-2x1 cursor-pointer flex items-center font-Poppins text-gray-800">
@@ -28,7 +52,7 @@ function NavBar() {
                     </span>
                 </div>
 
-                <div onClick={() => setOpen(!open)} className="text-3x1 absolute right-8 top-5 cursor-pointer md:hidden">
+                <div onClick={() => handleToggle()}  className="text-3x1 absolute right-8 top-5 cursor-pointer md:hidden">
                     <ion-icon style={{ fontSize: '1.9rem' }} name={ open ? 'close' : 'menu'}></ion-icon>
                 </div>
 
@@ -44,11 +68,34 @@ function NavBar() {
                             </li>
                         ) })
                     }
+
+                    <div>
+                        {auth?.username ? (
+                        <div className="ml-5 flex items-center text-lg"> <CgProfile className="mr-1" /> {auth.username}</div>
+                        ) : (
+                        <Link to="/login">
+                            <Button nvgtbutton rounded><FormattedMessage id="TituloIS"/></Button>
+                        </Link>
+                        )}
+                    </div>
+
+
                 </ul>
 
             </div>
 
+    
+        <div>
+            {!open && (
+                <div>
+                    {component}
+                </div>
+            )}
         </div>
+
+
+        </div>
+
     )
 }
 

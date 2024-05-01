@@ -1,4 +1,4 @@
-import Register from '../components/Register';
+import Register from '../components/auth/Register';
 import { FaInstagram } from "react-icons/fa";
 import { TiSocialFacebookCircular } from "react-icons/ti";
 import { FaTiktok } from "react-icons/fa";
