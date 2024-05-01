@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Button from "../Button";
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { Link } from "react-router-dom";
 import { FormattedMessage } from 'react-intl';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCheck, faTimes } from "@fortawesome/free-solid-svg-icons";
 
 
 
@@ -18,6 +20,14 @@ function CreateTournament({onCreate}){
     const [imageUrl,setImageUrl] = useState("")
 
     const [success, setSuccess] = useState("");
+
+    //Date Picker validations
+
+    const [validationDate, setValidationDate] = useState(false);
+
+    useEffect(() => {
+        setValidationDate(selectedDate < selectedDateEnd);
+    }, [selectedDate,selectedDateEnd])
 
     const handleSubmit = (event) => {
 
@@ -54,7 +64,7 @@ function CreateTournament({onCreate}){
                 </section>
             ) : (
         <div className="flex justify-center items-center min-h-screen bg-gray-200 font-squada-one">
-                    <div className="bg-white rounded-lg p-7 shadow-lg text-center">
+                    <div className="bg-white rounded-lg p-4 shadow-lg text-center">
                         <form onSubmit={handleSubmit}>
 
                             <div className="flex flex-col">
@@ -97,6 +107,7 @@ function CreateTournament({onCreate}){
                                         dateFormat="yyyy-MM-dd"
                                         placeholderText="Select an starting date"
                                         className="bg-green-100"
+                                        aria-invalid={validationDate ? "false" : "true"}
                                         />
                                 </div>
 
@@ -110,8 +121,13 @@ function CreateTournament({onCreate}){
                                         className="bg-green-100"
                                         />
                                 </div>
+
+                                <label className='text-lg font-medium mt-5'>
+                                    <FontAwesomeIcon icon={faCheck} className={validationDate ? "valid" : "hide"} />
+                                    <FontAwesomeIcon icon={faTimes} className={validationDate ? "hide" : "invalid"} />
+                                </label>
                             </div>
-                            <Button disabled={!name || !address || !imageUrl || !description || !selectedDate || !selectedDateEnd ? true : false}primary marginTop>Submit</Button>
+                            <Button disabled={!name || !address || !imageUrl || !description || !selectedDate || !selectedDateEnd || !validationDate ? true : false}primary marginTop>Submit</Button>
 
                         </form> 
                     </div>

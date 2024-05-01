@@ -26,11 +26,11 @@ function TournamentDetail() {
     }, [] )
 
     return (
-        <div className="w-full m-auto py-2 px-4 relative group m-w-[1000px] h-[300px] font-squada-one">
+        <div className="w-full m-auto py-2 px-4 relative group m-w-[1000px] h-[200px] font-squada-one">
             <div style={{backgroundImage: `url(${tournament.image})`}} className='w-full h-full rounded-2xl bg-center bg-cover'/>
                 <div className="flex">
 
-                    <div className="w-3/4 overflow-y-auto justify-between text-4xl mt-5 bg-green-100 rounded-lg p-5 mb-5 ">
+                    <div className="w-3/4 overflow-y-auto justify-between text-4xl mt-5 bg-green-100 rounded-lg p-3 mb-5 ">
                         <div className="flex">
                             <div className="text-3xl text-gray-700 mr-3 mt-1">
                                 <FormattedMessage id="NombreTorneo"/> 

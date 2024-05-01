@@ -60,9 +60,12 @@
     "DireccionTorneo": "Dirección",
     "ImagenURL": "URL Imagen",
     "Descripcion": "Descripción",
-
     "FechaInicio":"Seleccione Fecha de Inicio: ",
-    "FechaFin": "Seleccione Fecha de Finalización ",
+    "FechaFin": "Seleccione Fecha de Finalización: ",
+
+    
+    "FechaInicioCard": "Fecha Inicio:  ",
+    "FechaFinCard": "Fecha Fin:  ",
     "Detalles": "Detalles",
 
     "IraMisTorneos":"Ir a mis torneos inscritos",
