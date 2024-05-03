@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, {useState,useRef,useEffect} from 'react';
 import Button from '../Button';
 import axios from 'axios';
@@ -40,13 +41,13 @@ function Register() {
     // Validate username with the regex
     useEffect(() => {
         setValidName(USER_REGEX.test(username));
-    }, [username])
+    }, [USER_REGEX, username])
 
     // Validate password with the regex
     useEffect(() => {
         setValidPwd(PWD_REGEX.test(password));
         setValidMatch(password === matchPwd);
-    }, [password, matchPwd])
+    }, [password, matchPwd, PWD_REGEX])
 
     // Take out the err message until it passes the regex
     useEffect(() => {
@@ -63,7 +64,7 @@ function Register() {
             return;
         }
         try {
-            const response = await axios.post('http://localhost:3001/auth/signup', {
+            await axios.post('http://localhost:3001/auth/signup', {
                 username,
                 password,
             },

@@ -55,7 +55,7 @@ function SubscribeTournament() {
         event.preventDefault();
         try{
 
-            const response = await axios.post("http://localhost:3001/users/"+auth?.id+"/tournaments/"+tournamentId,
+            await axios.post("http://localhost:3001/users/"+auth?.id+"/tournaments/"+tournamentId,
             {
                 category: selection.value
             }
