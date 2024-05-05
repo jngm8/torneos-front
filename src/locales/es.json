@@ -43,7 +43,7 @@
     "Nav1": "TorneosEnVivo",
     "Nav2": "MisTorneos", 
     "Nav3": "Admin",
-    "Nav4": "¡Unete!",
+    "Nav4": "TorneosOrganizados",
 
 
     "CrearTorneo":"Crear Torneo",
@@ -74,6 +74,9 @@
 
     "Unauthorized1": "¡Ups! Parece que no estás autorizado para acceder a esta página.",
     "Unauthorized2": "Por favor, contacta al administrador si crees que esto es un error.",
-    "Unauthorized3": "401 no autorizado"
+    "Unauthorized3": "401 no autorizado",
+
+    "Eliminar": "Delete"
+
 
 }

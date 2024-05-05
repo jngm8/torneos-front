@@ -23,10 +23,10 @@ function LoginPage() {
 
 
                 <div className='flex mt-50 space-x-20 animate-bounce'>
-                    <a href="https://www.instagram.com/turbobet_" target="_blank" rel="noopener noreferrer">
+                    <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
                         <FaInstagram className="text-5xl hover:scale-110 transition duration-300" />
                     </a>
-                    <a href="https://www.facebook.com/profile.php?id=61554840969562" target="_blank" rel="noopener noreferrer">
+                    <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
                         <TiSocialFacebookCircular className="text-5xl hover:scale-110  transition duration-300" />
                     </a>
 

@@ -19,7 +19,7 @@
     "PreguntaReg": "Registered?",
     "UneteReg": "Join",
 
-    
+    "Eliminar": "Delete",
 
     "ErrorIS1": "Could not connect to the server",
     "ErrorIS2": "Missing username or password",
@@ -44,7 +44,7 @@
     "Nav1": "LiveTournaments",
     "Nav2": "MyTournaments", 
     "Nav3": "Admin",
-    "Nav4": "Join now!",
+    "Nav4": "OrganizedTournaments",
 
     "CrearTorneo":"Create Tournament",
     "MisTorneos":"My tournaments",

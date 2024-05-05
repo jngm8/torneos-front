@@ -1,7 +1,7 @@
 import className from 'classnames';
 import {twMerge} from 'tailwind-merge';
 
-function Button({disabled, children, primary, secondary, success, warning, danger, outline, rounded, nvgtbutton, marginbtm, marginTop, nocustom, bigLetter, ...rest}) {
+function Button({disabled, children, primary, secondary, success, warning, danger, outline, rounded, nvgtbutton, marginbtm, marginTop, nocustom, bigLetter, del, ...rest}) {
 
     let classes = twMerge(className("items-center px-6 py-2 border font-bold active:scale-[.98] active:duration-75 transition-all hover:scale-[1.01] ease-in-out",{
         'border-gray-600 bg-custom-green-btn text-white tracking-wide': primary,
@@ -17,11 +17,12 @@ function Button({disabled, children, primary, secondary, success, warning, dange
         'text-yellow-400': warning && outline,
         'text-red-500': danger && outline,
         'border-none hover:text-blue-500 block text-left px-0 py-1': nocustom,
-        "bg-green-500 font-Poppins md:ml-8 hover:bg-green-600 duration-500 text-white":nvgtbutton,
+        "bg-green-500 font-Poppins md:ml-8 hover:bg-green-600 duration-500 text-white mb-2":nvgtbutton,
         "mb-3 tracking-2 inline":marginbtm,
         "mt-4 tracking-2 inline":marginTop,
         "border-gray-200 bg-gray-300":disabled,
-        "text-4xl mb-10":bigLetter
+        "text-4xl mb-10":bigLetter,
+        "border-none text-red-500 bg-red-100 p-2 hover:bg-red-500 hover:text-white": del
     }));
 
     return (

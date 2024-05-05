@@ -123,8 +123,12 @@ function CreateTournament({onCreate}){
                                 </div>
 
                                 <label className='text-lg font-medium mt-5'>
-                                    <FontAwesomeIcon icon={faCheck} className={validationDate ? "valid" : "hide"} />
-                                    <FontAwesomeIcon icon={faTimes} className={validationDate ? "hide" : "invalid"} />
+                                    <div className={validationDate ? "valid" : "hide"}>
+                                        Valid dates
+                                    </div>
+                                    <div className={validationDate ? "hide" : "invalid"}>
+                                        Choose or correct your dates
+                                    </div>
                                 </label>
                             </div>
                             <Button disabled={!name || !address || !imageUrl || !description || !selectedDate || !selectedDateEnd || !validationDate ? true : false}primary marginTop>Submit</Button>

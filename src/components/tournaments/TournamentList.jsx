@@ -1,10 +1,10 @@
 import ShowTournament from "./ShowTournament";
 
 
-function TournamentList({tournamentsList}){
+function TournamentList({tournamentsList, onDelete}){
 
     const renderedTournaments = tournamentsList.map((tournament) => {
-       return <ShowTournament key={tournament.id} tournament={tournament}/>
+       return <ShowTournament key={tournament.id} tournament={tournament} onDelete={onDelete}/>
     })
 
     return (

@@ -13,10 +13,19 @@ function NavBar({component}) {
     const intl = useIntl();
     const {auth} = useAuth();
 
-    let Links = [
+    let LinksUser = [
         {name: intl.formatMessage({ id: 'Nav1' }), link:"/tournaments"},
         {name:intl.formatMessage({ id: 'Nav2' }), link:"/myTournaments"},
+    ]
+
+    
+    let LinksAdmin = [
+        {name: intl.formatMessage({ id: 'Nav1' }), link:"/tournaments"},
         {name: intl.formatMessage({ id: 'Nav3' }), link:"/admin"},
+    ]
+
+    let LinkUndefined = [
+        {name: intl.formatMessage({ id: 'Nav1' }), link:"/tournaments"},
     ]
 
     const [open, setOpen] = useState(false);
@@ -60,22 +69,52 @@ function NavBar({component}) {
                 absolute md:static bg-white md:z-auto z-[-1] left-0 
                 w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 
                 ease-in ${open ? 'top-20 opacity-100' : 'top-[-490px]'} md:opacity-100 opacity-0`}>
-                    {
-                        Links.map((link) => {
-                        return (
-                            <li key={link.name} className="md:ml-8 text-xl md:my-0 my-5">
-                                <Link to={link.link} href={link.link} className="text-gray-800 hover:text-gray-300 duration-500">{link.name}</Link>
-                            </li>
-                        ) })
+                    { auth?.roles === "admin" ? 
+                        (
+                            LinksAdmin.map((link) => {
+                                return (
+                                    <li key={link.name} className="md:ml-8 text-xl md:my-0 my-5">
+                                        <Link to={link.link} href={link.link} className="text-gray-800 hover:text-gray-300 duration-500">{link.name}</Link>
+                                    </li>
+                                ) 
+                            })
+                        ) : 
+                    auth?.roles === "user" ? 
+                    (
+                        LinksUser.map((link) => {
+                            return (
+                                <li key={link.name} className="md:ml-8 text-xl md:my-0 my-5">
+                                    <Link to={link.link} href={link.link} className="text-gray-800 hover:text-gray-300 duration-500">{link.name}</Link>
+                                </li>
+                            ) }
+                        )
+                    )  :
+                    (
+                        LinkUndefined.map((link) => {
+                            return (
+                                <li key={link.name} className="md:ml-8 text-xl md:my-0 my-5">
+                                    <Link to={link.link} href={link.link} className="text-gray-800 hover:text-gray-300 duration-500">{link.name}</Link>
+                                </li>
+                        )})
+                    )
+                    
                     }
+                    
 
                     <div>
                         {auth?.username ? (
                         <div className="ml-5 flex items-center text-lg"> <CgProfile className="mr-1" /> {auth.username}</div>
                         ) : (
-                        <Link to="/login">
-                            <Button nvgtbutton rounded><FormattedMessage id="TituloIS"/></Button>
-                        </Link>
+                        <div className="flex flex-col sm:flex-row">
+                            <Link to="/login">
+                                <Button nvgtbutton rounded><FormattedMessage id="TituloIS"/></Button>
+                            </Link>
+                            <Link to="/register">
+                                <Button nvgtbutton rounded><FormattedMessage id="TituloReg"/></Button>
+                            </Link>
+                        
+                        </div>
+
                         )}
                     </div>
 

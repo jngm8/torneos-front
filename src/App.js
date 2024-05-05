@@ -27,10 +27,9 @@ function App() {
             <Route path="tournaments" element={<NavBar component={<TournamentsPage />}></NavBar>}  />
             <Route path="/tournaments/:tournamentId" element={<TournamentDetail/>}/>
 
-
             <Route  element={<RequireAuth allowedRoles={"user"}/>} >
-                <Route path="/tournaments/subscribe/:tournamentId" element={<SubscribeTournament/>}/>
                 <Route path="/mytournaments" element={<NavBar component={<MyTournamentsPage />}></NavBar>}/>
+                <Route path="/tournaments/subscribe/:tournamentId" element={<SubscribeTournament/>}/>
             </Route>
 
             <Route element={<RequireAuth allowedRoles={"admin"}/>}>
