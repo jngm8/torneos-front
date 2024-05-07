@@ -6,6 +6,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit, faTimes } from "@fortawesome/free-solid-svg-icons";
 import useAuth from "../../hooks/useAuth";
 import EditTournament from "./EditTournament";
+import { FaRegCalendarCheck } from "react-icons/fa";
+import { FaRegCalendarMinus } from "react-icons/fa6";
+
 
 
 function ShowTournament({tournament, onDelete, onEdit}) {
@@ -25,16 +28,22 @@ function ShowTournament({tournament, onDelete, onEdit}) {
 
   const handleSubmit = (id,name,address,description) => {
     setShowEdit(false);
-    onEdit(id,name,address,description);
+    onEdit(id,name,address, tournament.date, tournament.dateEnd,tournament.image,description);
   }
 
   let content = <div>
     <div className="font-bold text-2xl mb-2 truncate text-center mt-5">{tournament.name}</div>
                 <img className="w-full h-auto mb-2 rounded-lg" src={tournament.image} alt="" />
                 <p className=" font-bold text-2xl text-gray-700 text-center">{tournament.address}</p>
-                <div className="flex flex-col">
-                  <p className="text-gray-700 text-base text-center"> <FormattedMessage id="FechaInicioCard"/> {tournament.date}</p>
-                  <p className="text-gray-700 text-base text-center"> <FormattedMessage id="FechaFinCard"/> {tournament.dateEnd}</p>
+                <div className="flex flex-col items-center">
+                  <div className="flex">
+                    <FaRegCalendarCheck className="mr-2 mt-1"/>
+                    <p className="text-gray-700 text-base text-center"> <FormattedMessage id="FechaInicioCard"/> {tournament.date}</p>
+                  </div>
+                  <div className="flex">
+                  <FaRegCalendarMinus className="mr-2 mt-1"/>
+                    <p className="text-gray-700 text-base text-center"> <FormattedMessage id="FechaFinCard"/> {tournament.dateEnd}</p>
+                  </div>
                 </div>
                 <div className="text-center">
                   <Link to={`${tournament.id}`}>

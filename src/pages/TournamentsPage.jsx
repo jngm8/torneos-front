@@ -46,17 +46,29 @@ function TournamentsPage() {
         }
     }
 
-    const editTournament = async (id,name,address,description) => {
+    const editTournament = async (id,name,address,date, dateEnd, image, description) => {
 
-        tournamentList.map((tournament) => {
+        const tournamentsUpdate = await axios.put(`http://localhost:3001/tournaments/${id}`,{
+            name,
+            address,
+            date,
+            dateEnd,
+            image,
+            description
+        },
+        {
+            headers: { 'Authorization': `Bearer ${auth?.accessToken}`}
+    })
+
+        const updatedTournaments = tournamentList.map((tournament) => {
             if(tournament.id === id){
-                return  {...tournament, name, address,  description}
+                return  {...tournament, ...tournamentsUpdate.data};
             }
 
             return tournament;
         })
 
-        setTournamentList(tournamentList);
+        setTournamentList(updatedTournaments);
     }
     
     return (
