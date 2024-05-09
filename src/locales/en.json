@@ -72,10 +72,24 @@
 
     "Unauthorized1": "Oops! It seems you are not authorized to access this page.",
     "Unauthorized2": "Please contact the administrator if you believe this is an error.",
-    "Unauthorized3": "401 unauthorized"
+    "Unauthorized3": "401 unauthorized",
 
 
+    "Slides1": "Swimming",
+    "Slides2": "Golf",
+    "Slides3": "Cycling",
+    "Slides4": "Tennis",
+    "Slides5": "Basketball",
 
+    "SlidesText1": "Participate in our swimming tournaments",
+    "SlidesText2": "Participate in our golf tournaments",
+    "SlidesText3": "Participate in our cycling tournaments",
+    "SlidesText4": "Participate in our tennis tournaments",
+    "SlidesText5": "Participate in our basketball tournaments",
+
+    "CallToAction": "Join!",
+
+    "Update": "Update"
     
 
 

@@ -76,7 +76,25 @@
     "Unauthorized2": "Por favor, contacta al administrador si crees que esto es un error.",
     "Unauthorized3": "401 no autorizado",
 
-    "Eliminar": "Delete"
+    "Eliminar": "Delete",
+
+    "Slides1": "Natación",
+    "Slides2": "Golf",
+    "Slides3": "Ciclismo",
+    "Slides4": "Tenis",
+    "Slides5": "Baloncesto",
+
+    "SlidesText1": "¡Participa en torneos de natación!",
+    "SlidesText2": "¡Participa en torneos de golf!",
+    "SlidesText3": "¡Participa en torneos de ciclismo!",
+    "SlidesText4": "¡Participa en torneos de tenis!",
+    "SlidesText5": "¡Participa en torneos de baloncesto!",
+
+    "CallToAction": "¡Participar!",
+
+    "Update": "Actualizar"
+
+
 
 
 }

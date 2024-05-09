@@ -5,10 +5,6 @@ import 'react-datepicker/dist/react-datepicker.css';
 import { Link } from "react-router-dom";
 import { FormattedMessage } from 'react-intl';
 
-
-
-
-
 function CreateTournament({onCreate}){
 
     const [name,setName] = useState("");

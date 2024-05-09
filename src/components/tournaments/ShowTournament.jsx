@@ -33,23 +33,23 @@ function ShowTournament({tournament, onDelete, onEdit}) {
 
   let content = <div>
     <div className="font-bold text-2xl mb-2 truncate text-center mt-5">{tournament.name}</div>
-                <img className="w-full h-auto mb-2 rounded-lg" src={tournament.image} alt="" />
-                <p className=" font-bold text-2xl text-gray-700 text-center">{tournament.address}</p>
-                <div className="flex flex-col items-center">
-                  <div className="flex">
-                    <FaRegCalendarCheck className="mr-2 mt-1"/>
-                    <p className="text-gray-700 text-base text-center"> <FormattedMessage id="FechaInicioCard"/> {tournament.date}</p>
-                  </div>
-                  <div className="flex">
-                  <FaRegCalendarMinus className="mr-2 mt-1"/>
-                    <p className="text-gray-700 text-base text-center"> <FormattedMessage id="FechaFinCard"/> {tournament.dateEnd}</p>
-                  </div>
-                </div>
-                <div className="text-center">
-                  <Link to={`${tournament.id}`}>
-                    <Button success marginTop outline rounded><FormattedMessage id="Detalles"/></Button>
-                  </Link>
-                </div>
+        <img className="w-full h-auto mb-2 rounded-lg" src={tournament.image} alt="" />
+        <p className="font-bold text-2xl text-gray-700 text-center">{tournament.address}</p>
+        <div className="flex flex-col items-center">
+          <div className="flex">
+            <FaRegCalendarCheck className="mr-2 mt-1"/>
+            <p className="text-gray-700 text-base text-center"> <FormattedMessage id="FechaInicioCard"/> {tournament.date}</p>
+          </div>
+          <div className="flex">
+          <FaRegCalendarMinus className="mr-2 mt-1"/>
+            <p className="text-gray-700 text-base text-center"> <FormattedMessage id="FechaFinCard"/> {tournament.dateEnd}</p>
+          </div>
+        </div>
+        <div className="text-center">
+          <Link to={`${tournament.id}`}>
+            <Button success marginTop outline rounded><FormattedMessage id="Detalles"/></Button>
+          </Link>
+        </div>
   </div>
 
   if (showEdit) {

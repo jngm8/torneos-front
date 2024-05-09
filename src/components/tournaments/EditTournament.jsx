@@ -1,5 +1,7 @@
 import Button from "../Button";
 import { useState } from "react";
+import { FormattedMessage, useIntl  } from 'react-intl';
+
 
 function EditTournament({tournament, onSubmit}){
 
@@ -14,7 +16,7 @@ function EditTournament({tournament, onSubmit}){
     }
     return (
         <form onSubmit={handleSubmit} >
-            <label htmlFor="name">Nombre</label>
+            <label htmlFor="name"><FormattedMessage id="NombreTorneo"/></label>
             <input 
             className='w-full border-2 border-gray-100 rounded-xl p-4 mt-1 bg-transparent'
             type="text" 
@@ -23,7 +25,7 @@ function EditTournament({tournament, onSubmit}){
             value={name}
             onChange={(event) => setName(event.target.value)}
             />
-            <label htmlFor="address">Dirección</label>
+            <label htmlFor="address"><FormattedMessage id="DireccionTorneo"/></label>
             <input 
             className='w-full border-2 border-gray-100 rounded-xl p-4 mt-1 bg-transparent'
             type="text" 
@@ -32,7 +34,7 @@ function EditTournament({tournament, onSubmit}){
             value={address}
             onChange={(event) => setAddress(event.target.value)}
             />
-            <label htmlFor='description'>Descripción</label>
+            <label htmlFor='description'><FormattedMessage id="Descripcion"/></label>
             <textarea 
             className='w-full border-2 border-gray-100 rounded-xl p-4 mt-1 bg-transparent' 
             htmlFor='description' 
@@ -43,7 +45,7 @@ function EditTournament({tournament, onSubmit}){
             onChange={(event) => setDescription(event.target.value)}
             />
             <div className="mt-4">
-                <Button primary rounded type="submit">Guardar</Button>
+                <Button primary rounded type="submit"><FormattedMessage id="Update"/></Button>
             </div>
         </form>
     )

@@ -88,7 +88,7 @@ function NavBar({component}) {
                                 </li>
                             ) }
                         )
-                    )  :
+                    )  : auth?.roles === "superadmin" ?
                     (
                         LinkUndefined.map((link) => {
                             return (
@@ -96,6 +96,8 @@ function NavBar({component}) {
                                     <Link to={link.link} href={link.link} className="text-gray-800 hover:text-gray-300 duration-500">{link.name}</Link>
                                 </li>
                         )})
+                    ) : (
+                        <div></div>
                     )
                     
                     }

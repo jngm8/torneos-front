@@ -20,7 +20,8 @@ function App() {
 
     return (
         <Routes>
-            <Route path="/" element={<Home component={<Carousel big/>} />}/>
+            {/* <Route path="/" element={<Home component={<Carousel big/>} />}/> */}
+            <Route path="/" element={<NavBar component={<Home/>}></NavBar>}/>
             <Route path="login" element={<Login />} />
             <Route path="register" element={<Register />} />
             <Route path="unauthorized" element={<NavBar component={<Unauthorized />}></NavBar>} />
