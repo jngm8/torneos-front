@@ -12,6 +12,7 @@ import SubscribeTournament from './components/tournaments/SubscribeTournament';
 import MyTournamentsPage from './pages/MyTournamentsPage';
 import NavBar from './components/NavBar';
 import Carousel from './components/Carousel';
+import Users from './components/Users';
 
 
 
@@ -21,12 +22,14 @@ function App() {
     return (
         <Routes>
             {/* <Route path="/" element={<Home component={<Carousel big/>} />}/> */}
-            <Route path="/" element={<NavBar component={<Home/>}></NavBar>}/>
+            <Route path="/" element={<NavBar component={<Home component={<Carousel big/>}/>}></NavBar>}/>
             <Route path="login" element={<Login />} />
             <Route path="register" element={<Register />} />
             <Route path="unauthorized" element={<NavBar component={<Unauthorized />}></NavBar>} />
             <Route path="tournaments" element={<NavBar component={<TournamentsPage />}></NavBar>}  />
             <Route path="/tournaments/:tournamentId" element={<TournamentDetail/>}/>
+
+            <Route path="/UserTest" element={<Users/>}/>
 
             <Route  element={<RequireAuth allowedRoles={"user"}/>} >
                 <Route path="/mytournaments" element={<NavBar component={<MyTournamentsPage />}></NavBar>}/>

@@ -55,11 +55,13 @@ function Login() {
             const accessToken = response?.data?.accessToken;
             const roles = response?.data?.role;
             const id = response?.data?.id;
+            const refreshToken = response?.data?.refreshToken;
 
-            console.log(accessToken, roles, username,id);
+            console.log("at: " + accessToken, "roles: " + roles, "Username: " + username, "id: " + id, "rf: " + refreshToken);
    
+            console.log("*"*10);
             
-            setAuth({username,password,accessToken,roles,id});
+            setAuth({username,accessToken,roles,id, refreshToken});
             setUsername('');
             setPassword('');
             navigate(from, { replace: true });

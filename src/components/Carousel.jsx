@@ -110,7 +110,7 @@ function Carousel({big,small}) {
             {auth?.username ? (
               <div></div>
             ) : (
-              <div className='absolute inset-x-[75%] bottom-0 animate-bounce'>
+              <div className='absolute inset-x-[70%] bottom-5 animate-bounce'>
                 <Link to="tournaments">
                     <Button nvgtbutton rounded bigLetter>{intl.formatMessage({ id: 'CallToAction' })}</Button>
                 </Link>

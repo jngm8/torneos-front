@@ -1,14 +1,10 @@
-import Carousel from "../components/Carousel";
-
-
 function Home({component}) {
 
     return(
         <div>
             <div>
-                <Carousel big/>
+                {component}
             </div>
-
         </div>
 
     )

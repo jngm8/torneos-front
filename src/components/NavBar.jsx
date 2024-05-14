@@ -22,6 +22,7 @@ function NavBar({component}) {
     let LinksAdmin = [
         {name: intl.formatMessage({ id: 'Nav1' }), link:"/tournaments"},
         {name: intl.formatMessage({ id: 'Nav3' }), link:"/admin"},
+        {name: "hdp", link:"/UserTest"},
     ]
 
     let LinkUndefined = [
