@@ -1,6 +1,6 @@
 import Button from "../Button";
 import { useState } from "react";
-import { FormattedMessage, useIntl  } from 'react-intl';
+import { FormattedMessage  } from 'react-intl';
 
 
 function EditTournament({tournament, onSubmit}){

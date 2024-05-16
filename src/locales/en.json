@@ -44,7 +44,7 @@
     "Nav1": "LiveTournaments",
     "Nav2": "MyTournaments", 
     "Nav3": "Admin",
-    "Nav4": "OrganizedTournaments",
+    "Nav4": "Edit Tournaments",
 
     "CrearTorneo":"Create Tournament",
     "MisTorneos":"My tournaments",

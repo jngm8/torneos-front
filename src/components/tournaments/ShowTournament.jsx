@@ -60,7 +60,7 @@ function ShowTournament({tournament, onDelete, onEdit}) {
       <div className="border border-gray-200 rounded-xl max-w-xs overflow-hidden shadow-lg bg-white m-5 sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 transition duration-500 hover:scale-105 hover:shadow-xl relative">
           <div className="flex flex-col justify-between h-full p-4 ">
             <div>{content}</div>
-            { auth?.roles === 'superadmin' ? (
+            { auth?.role === 'superadmin' ? (
                 <div className="flex absolute top-1 right-1">
                     <Button edit rounded onClick={handleEdit}>
                       <FontAwesomeIcon icon={faEdit} className="text-sm"/>

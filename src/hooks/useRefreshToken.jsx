@@ -1,27 +1,27 @@
-import axios from 'axios';
 import useAuth from './useAuth';
+import axiosInstance from '../api/axios';
 
 function useRefreshToken(){
 
-    const {auth, setAuth} = useAuth();
+    const { setAuth } = useAuth();
 
     const refresh = async () => {
 
-        const response = await axios.post('http://localhost:3001/auth/refresh', 
-            {}, // an empty object for the data payload
+        const response = await axiosInstance.get('/auth/refresh', 
             {
-                headers: { 
-                    'Authorization': `Bearer ${auth?.refreshToken}` 
-                },
-                withCredentials: true
+                withCredentials: true // Send cookies with the request.
             }
-        );
+        );        
         setAuth(prev => {
-            console.log(JSON.stringify(prev));
             console.log(response?.data?.accessToken);
+            console.log(response);
+            
             return({
                 ...prev,
-                accessToken: response?.data?.refreshToken
+                accessToken: response?.data?.accessToken,
+                role: response?.data?.role,
+                username: response?.data?.username,
+                id: response?.data?.id
         })
         })
 
@@ -29,6 +29,6 @@ function useRefreshToken(){
     }
 
     return refresh;
-}
+};
 
 export default useRefreshToken; 

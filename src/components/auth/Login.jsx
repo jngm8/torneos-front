@@ -53,15 +53,12 @@ function Login() {
 
             
             const accessToken = response?.data?.accessToken;
-            const roles = response?.data?.role;
+            const role = response?.data?.role;
             const id = response?.data?.id;
-            const refreshToken = response?.data?.refreshToken;
 
-            console.log("at: " + accessToken, "roles: " + roles, "Username: " + username, "id: " + id, "rf: " + refreshToken);
-   
-            console.log("*"*10);
-            
-            setAuth({username,accessToken,roles,id, refreshToken});
+            console.log("at: " + accessToken, "roles: " + role, "Username: " + username, "id: " + id);
+               
+            setAuth({username,accessToken,role,id});
             setUsername('');
             setPassword('');
             navigate(from, { replace: true });

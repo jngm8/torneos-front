@@ -6,12 +6,16 @@ import  LogoImage  from "./LogoImage";
 import useAuth from "../hooks/useAuth";
 import { CgProfile } from "react-icons/cg";
 import { useEffect } from "react";
-
+import { IoLogOutOutline } from "react-icons/io5";
+import { useNavigate } from "react-router-dom";
+import useSignout from "../hooks/useSignout";
 
 function NavBar({component}) {
 
     const intl = useIntl();
     const {auth} = useAuth();
+    const navigate = useNavigate();
+
 
     let LinksUser = [
         {name: intl.formatMessage({ id: 'Nav1' }), link:"/tournaments"},
@@ -22,11 +26,10 @@ function NavBar({component}) {
     let LinksAdmin = [
         {name: intl.formatMessage({ id: 'Nav1' }), link:"/tournaments"},
         {name: intl.formatMessage({ id: 'Nav3' }), link:"/admin"},
-        {name: "hdp", link:"/UserTest"},
     ]
 
     let LinkUndefined = [
-        {name: intl.formatMessage({ id: 'Nav1' }), link:"/tournaments"},
+        {name: intl.formatMessage({ id: 'Nav4' }), link:"/tournaments"},
     ]
 
     const [open, setOpen] = useState(false);
@@ -51,6 +54,17 @@ function NavBar({component}) {
         // Clean up by removing event listener
         return () => window.removeEventListener('resize', handleResize);
       }, []);
+
+
+      const signout = useSignout();
+
+      const logout = async () => {
+        // if used in more components, this should be in context 
+        // axios to /logout endpoint
+        await signout();
+        navigate('/');        
+    }
+
     
     return (
         <div className="shadow-md w-full fixed top-0 left-0 font-squada-one">
@@ -70,7 +84,7 @@ function NavBar({component}) {
                 absolute md:static bg-white md:z-auto z-[-1] left-0 
                 w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 
                 ease-in ${open ? 'top-20 opacity-100' : 'top-[-490px]'} md:opacity-100 opacity-0`}>
-                    { auth?.roles === "admin" ? 
+                    { auth?.role === "admin" ? 
                         (
                             LinksAdmin.map((link) => {
                                 return (
@@ -80,7 +94,7 @@ function NavBar({component}) {
                                 ) 
                             })
                         ) : 
-                    auth?.roles === "user" ? 
+                    auth?.role === "user" ? 
                     (
                         LinksUser.map((link) => {
                             return (
@@ -89,7 +103,7 @@ function NavBar({component}) {
                                 </li>
                             ) }
                         )
-                    )  : auth?.roles === "superadmin" ?
+                    )  : auth?.role === "superadmin" ?
                     (
                         LinkUndefined.map((link) => {
                             return (
@@ -106,9 +120,15 @@ function NavBar({component}) {
 
                     <div>
                         {auth?.username ? (
-                        <div className="ml-5 flex items-center text-lg"> <CgProfile className="mr-1" /> {auth.username}</div>
+
+                            <div className="flex md:ml-5">
+                                <div className="mr-5 flex items-center text-lg"> <CgProfile className="mr-1" /> {auth.username}</div>
+                                <Link to="/">
+                                    <Button onClick={logout} nocustom><IoLogOutOutline className="text-3xl"/></Button>
+                                </Link>
+                            </div>
                         ) : (
-                        <div className="flex flex-col sm:flex-row">
+                        <div className="flex flex-col md:flex-row">
                             <Link to="/login">
                                 <Button nvgtbutton rounded><FormattedMessage id="TituloIS"/></Button>
                             </Link>

@@ -2,12 +2,15 @@ import { useEffect, useState } from "react";
 import TournamentList from "../components/tournaments/TournamentList";
 import axios from 'axios';
 import useAuth from "../hooks/useAuth";
+import useAxiosPrivate from "../hooks/useAxiosPrivate";
 
 function TournamentsPage() {
 
     const [tournamentList,setTournamentList] = useState([]);
 
     const {auth} = useAuth()
+
+    const axiosPrivate = useAxiosPrivate();
 
     const fetchTournaments = async () => {
 
@@ -30,7 +33,7 @@ function TournamentsPage() {
     const deleteBookById = async (id) => {
 
         try{
-            await axios.delete(`http://localhost:3001/tournaments/${id}`,
+            await axiosPrivate.delete(`/tournaments/${id}`,
             {
                 headers: {
                     'Authorization': `Bearer ${auth?.accessToken}`
@@ -48,7 +51,7 @@ function TournamentsPage() {
 
     const editTournament = async (id,name,address,date, dateEnd, image, description) => {
 
-        const tournamentsUpdate = await axios.put(`http://localhost:3001/tournaments/${id}`,{
+        const tournamentsUpdate = await axiosPrivate.put(`/tournaments/${id}`,{
             name,
             address,
             date,
