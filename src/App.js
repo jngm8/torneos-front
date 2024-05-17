@@ -23,12 +23,11 @@ function App() {
             <Route path="login" element={<Login />} />
             <Route path="register" element={<Register />} />
             <Route path="unauthorized" element={<NavBar component={<Unauthorized />}></NavBar>} />
-            <Route path="tournaments" element={<NavBar component={<TournamentsPage />}></NavBar>}  />
-            <Route path="/tournaments/:tournamentId" element={<TournamentDetail/>}/>
-
 
             <Route element={<PersistLogin/>}>
                 <Route path="/" element={<NavBar component={<Home component={<Carousel big/>}/>}></NavBar>}/>
+                <Route path="tournaments" element={<NavBar component={<TournamentsPage />}></NavBar>}  />
+                <Route path="/tournaments/:tournamentId" element={<TournamentDetail/>}/>
                 <Route  element={<RequireAuth allowedRoles={"user"}/>} >
                     <Route path="/mytournaments" element={<NavBar component={<MyTournamentsPage />}></NavBar>}/>
                     <Route path="/tournaments/subscribe/:tournamentId" element={<SubscribeTournament/>}/>

@@ -33,14 +33,7 @@ function TournamentsPage() {
     const deleteBookById = async (id) => {
 
         try{
-            await axiosPrivate.delete(`/tournaments/${id}`,
-            {
-                headers: {
-                    'Authorization': `Bearer ${auth?.accessToken}`
-                }
-            }
-    
-            );
+            await axiosPrivate.delete(`/tournaments/${id}`);
             const updatedTournaments = tournamentList.filter((tournament) => tournament.id !== id);
     
             setTournamentList(updatedTournaments);

@@ -8,7 +8,7 @@ import useAuth from '../../hooks/useAuth';
 
 function Login() {
 
-    const { setAuth } = useAuth();
+    const { setAuth, persist, setPersist } = useAuth();
     const userRef = useRef(null);
     const errRef = useRef();
 
@@ -81,6 +81,14 @@ function Login() {
 
     const intl = useIntl()
 
+    const handleChange = () => {
+        setPersist(prev => !prev);
+      };
+    
+      useEffect(() => {
+        localStorage.setItem("persist", persist);
+      },[persist])
+
     return (
 
         <div className='bg-white px-10 py-7 rounded-3xl border-2 font-squada-one'>
@@ -118,9 +126,21 @@ function Login() {
                     />
                 </div>
 
-                <div className='mt-8 flex flex-col'>
+                <div className="flex items-center mt-5 ml-2">
+                    <input
+                        type="checkbox"
+                        checked={persist}
+                        onChange={handleChange}
+                        className="form-checkbox h-5 w-5 text-blue-600"
+                    />
+                    <label className="ml-2 text-gray-700">Remember me</label>
+                </div>
+
+                <div className='mt-5 flex flex-col'>
                     <Button primary rounded marginbtm><FormattedMessage id="UnirmeIS"/></Button>
                 </div>
+
+
             </form>
 
             <Button secondary rounded outline>
