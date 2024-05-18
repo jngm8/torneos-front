@@ -89,7 +89,11 @@
 
     "CallToAction": "Join!",
 
-    "Update": "Update"
+    "Update": "Update",
+
+    "InvalidDates": "Choose or fix your dates",
+
+    "ValidDates": "Valid dates"
     
 
 

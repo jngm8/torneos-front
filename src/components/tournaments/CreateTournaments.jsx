@@ -119,10 +119,10 @@ function CreateTournament({onCreate}){
 
                                 <label className='text-lg font-medium mt-5'>
                                     <div className={validationDate ? "valid" : "hide"}>
-                                        Valid dates
+                                        <FormattedMessage id="ValidDates"/>
                                     </div>
                                     <div className={validationDate ? "hide" : "invalid"}>
-                                        Choose or correct your dates
+                                        <FormattedMessage id="InvalidDates"/>
                                     </div>
                                 </label>
                             </div>

@@ -2,7 +2,7 @@ import { useState } from "react";
 import CreateTournament from "../components/tournaments/CreateTournaments";
 import axios from 'axios';
 import useAuth from "../hooks/useAuth";
-
+import useAxiosPrivate from "../hooks/useAxiosPrivate";
 
 
 
@@ -11,6 +11,8 @@ function CreateTournamentPage(){
 
     const [tournaments,setTournament] = useState([]);
 
+    const axiosPrivate = useAxiosPrivate();
+
     // For the auth token
     const {auth} = useAuth();
 
@@ -18,7 +20,7 @@ function CreateTournamentPage(){
 
 
         try {
-            const response = await axios.post('http://localhost:3001/tournaments', {
+            const response = await axiosPrivate.post('http://localhost:3001/tournaments', {
                 name,
                 address,
                 date,

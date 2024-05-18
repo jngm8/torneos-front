@@ -90,9 +90,14 @@
     "SlidesText4": "¡Participa en torneos de tenis!",
     "SlidesText5": "¡Participa en torneos de baloncesto!",
 
-    "CallToAction": "¡Participar!",
+    "CallToAction": "¡Participa!",
 
-    "Update": "Actualizar"
+    "Update": "Actualizar",
+
+    "InvalidDates": "Elige o corrige las fechas",
+
+    "ValidDates": "Fechas válidas"
+
 
 
 
