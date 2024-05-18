@@ -91,8 +91,8 @@ function Carousel({big,small}) {
               <div className="text-center">
                 {isVisible && (
                   <>
-                    <h1 className="text-white text-5xl md:text-8xl lg:text-6xl font-bold">{slides[currentIndex].sport}</h1>
-                    <p className="text-white mt-2 text-2xl md:text-4xl lg:text-3xl ">{slides[currentIndex].hook}</p>
+                    <h1 className="text-white text-2xl md:text-4xl lg:text-6xl font-bold">{slides[currentIndex].sport}</h1>
+                    <p className="text-white mt-2 text-2xl md:text-3xl lg:text-4xl ">{slides[currentIndex].hook}</p>
                   </>
                 )}
 
@@ -112,7 +112,7 @@ function Carousel({big,small}) {
             ) : (
               <div className='absolute inset-x-[70%] bottom-5 animate-bounce'>
                 <Link to="tournaments">
-                    <Button nvgtbutton rounded bigLetter>{intl.formatMessage({ id: 'CallToAction' })}</Button>
+                    <Button nvgtbutton rounded bigLetter callToAction>{intl.formatMessage({ id: 'CallToAction' })}</Button>
                 </Link>
               </div>
             )}
